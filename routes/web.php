@@ -9,7 +9,7 @@ use App\Http\Controllers\contactController;
 use App\Http\Controllers\serviceController;
 use App\Http\Controllers\UsersController;
 
-Route::get('/',[accueilController::class, 'index']);
+Route::get('/',[AdminController::class, 'index'])->name('home');
 
 Route::get('/contact', [contactController::class, 'contactez']);
 
@@ -27,4 +27,4 @@ Route::post('/loginDemande',[AdminController::class,'login'])->name('login.users
 
 
 Route::get('users/dashboard',[UsersController::class,'index'])->name('users.dashboard');
-
+Route::get('users/logout',[UsersController::class,'logoutUsers'])->name('users.logout');

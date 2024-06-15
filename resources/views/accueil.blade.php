@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+    .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
     @include('templates.heade')
 
     <body>
 
     @include('templates.navBar')
 
-       
+
         <!-- About Start -->
         <div class="container-fluid about py-5">
             <div class="container py-5">
@@ -16,7 +55,7 @@
                             <img src="img/about-img.jpg" class="img-fluid w-100 h-100" alt="">
                         </div>
                     </div>
-                          
+
                     <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
                         <h5 class="section-about-title pe-3">About Us</h5>
                         <h1 class="mb-4">Welcome to <span class="text-primary">Travela</span></h1>
@@ -172,7 +211,7 @@
         <!-- Services End -->
 
         <!-- Destination Start -->
-       
+
         <!-- Destination End -->
 
         <!-- Explore Tour Start -->
@@ -366,8 +405,64 @@
         </div>
         <!-- Explore Tour Start -->
 
-      
+
    <!-- Button trigger modal -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form action="/registerDemande" method="POST">
+        @csrf
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control bg-white border-0" name="nom" id="name" placeholder="Entrer votre nom">
+                <label for="name">Nom</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control bg-white border-0" id="email" name="prenom" placeholder="Entrer votre prenom" required>
+                <label for="email">Prenom</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="email" class="form-control bg-white border-0" id="datetime" name="email" placeholder="Votre Email"  />
+                <label for="datetime">Email</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="text" class="form-control bg-white border-0" id="datetime" name="tel" placeholder="Votre téléohone"  />
+                <label for="datetime">Téléphone</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="password" class="form-control bg-white border-0" id="datetime" name="password" placeholder="Mot de passe"  />
+                <label for="datetime">Password</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="password" class="form-control bg-white border-0" id="datetime" name="password_confirm" placeholder="Mot de passe"  />
+                <label for="datetime">Password-confirmation</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
+        </div>
+    </div>
+</form>
+  </div>
+
+</div>
+
 
 
 <!-- Modal -->
@@ -387,85 +482,27 @@
                                         <input type="text" class="form-control bg-white border-0" name="emailOrTel" id="name" placeholder="Email ou Téléphone">
                                         <label for="name">Identifiant</label>
                                     </div>
-                               
+
                                <div class="col-md-6">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
                                         <input type="password" class="form-control bg-white border-0" id="datetime" name="password" placeholder="Mot de passe"  />
                                         <label for="datetime">Password</label>
                                     </div>
                                 </div>
-                               
-                                
+
+
                                 <div class="col-12">
                                     <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
                                 </div>
                             </div>
                         </form>
       </div>
-    
+
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Creation-compte</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-                            <form action="/registerDemande" method="POST">
-                                @csrf
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-white border-0" name="nom" id="name" placeholder="Entrer votre nom">
-                                        <label for="name">Nom</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-white border-0" id="email" name="prenom" placeholder="Entrer votre prenom" required>
-                                        <label for="email">Prenom</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="email" class="form-control bg-white border-0" id="datetime" name="email" placeholder="Votre Email"  />
-                                        <label for="datetime">Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-white border-0" id="datetime" name="tel" placeholder="Votre téléohone"  />
-                                        <label for="datetime">Téléphone</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="password" class="form-control bg-white border-0" id="datetime" name="password" placeholder="Mot de passe"  />
-                                        <label for="datetime">Password</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="password" class="form-control bg-white border-0" id="datetime" name="password_confirm" placeholder="Mot de passe"  />
-                                        <label for="datetime">Password-confirmation</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12">
-                                    <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
-                                </div>
-                            </div>
-                        </form>
-      </div>
-     
-    </div>
-  </div>
-</div>
+
 
         <!-- Tour Booking Start -->
         <div class="container-fluid booking py-5">
@@ -483,14 +520,14 @@
                     <div class="col-lg-6">
                         <h1 class="text-white mb-3">Book A Tour Deals</h1>
                         <p class="text-white mb-4">Get <span class="text-warning">50% Off</span> On Your First Adventure Trip With Travela. Get More Deal Offers Here.</p>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
-       
 
-       
+
+
         <!-- Testimonial End -->
 
         <!-- Subscribe Start -->
@@ -513,7 +550,7 @@
         <!-- Footer Start -->
         @include('templates.footer')
         <!-- Footer End -->
-        
+
         <!-- Copyright Start -->
         <div class="container-fluid copyright text-body py-4">
             <div class="container">
@@ -534,9 +571,9 @@
         <!-- Copyright End -->
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
 
-        
+
         <!-- JavaScript Libraries -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -544,10 +581,37 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
-        
+
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+        <script>
+            var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+        </script>
     </body>
 
 </html>
