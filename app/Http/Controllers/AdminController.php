@@ -36,6 +36,7 @@ class AdminController extends Controller
         $user->nom=$demandeRequest->nom;
         $user->prenom=$demandeRequest->prenom;
         $user->email=$demandeRequest->email;
+        $user->age=$demandeRequest->age ?:0;
         $user->tel=$demandeRequest->tel;
         $user->password= Hash::make($demandeRequest->password) ;
 

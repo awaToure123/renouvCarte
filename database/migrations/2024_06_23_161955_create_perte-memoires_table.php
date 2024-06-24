@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Demandeur;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,15 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('demandeurs', function (Blueprint $table) {
+        Schema::create('perte-memoires', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('email')->unique();
-            $table->string('age')->unique();
-            $table->string('tel')->unique();
-            $table->string('password');
-            $table->string('profile')->nullable();
+            $table->string('certificat_de_perte');
+            $table->string('extrait_naissance');
+            $table->string('ancienne_carte')->nullable();
+            $table->foreignIdFor(Demandeur::class);
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('demandeurs');
+        Schema::dropIfExists('perte-memoires');
     }
 };

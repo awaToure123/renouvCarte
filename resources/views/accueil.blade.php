@@ -441,6 +441,13 @@
                 <label for="datetime">Téléphone</label>
             </div>
         </div>
+
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="number" class="form-control bg-white border-0" id="datetime" name="age" placeholder="Votre age" min='1'  />
+                <label for="datetime">Age</label>
+            </div>
+        </div>
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
                 <input type="password" class="form-control bg-white border-0" id="datetime" name="password" placeholder="Mot de passe"  />

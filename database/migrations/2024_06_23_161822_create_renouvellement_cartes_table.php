@@ -12,24 +12,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('demande', function (Blueprint $table) {
+        Schema::create('renouvellement_cartes', function (Blueprint $table) {
             $table->id();
-            $table->string('timbre');
-            $table->string('copie_acte_naissance');
-            $table->string('date_naissance');
-            $table->string('photo');
-            $table->string('carte_ancienne');
-            $table->string('status');
+            $table->string('ancienne_carte');
             $table->foreignIdFor(Demandeur::class);
+
             $table->timestamps();
         });
     }
 
     /**
-
+     * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('demande');
+        Schema::dropIfExists('renouvellement_cartes');
     }
 };

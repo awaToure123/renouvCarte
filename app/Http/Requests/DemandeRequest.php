@@ -29,6 +29,7 @@ class DemandeRequest extends FormRequest
             'email'=>'required|email|unique:demandeurs,tel',
             'password'=>'required',
             'password_confirm'=>'required',
+            'age'=>'required',
 
 
         ];
