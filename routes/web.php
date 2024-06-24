@@ -29,3 +29,4 @@ Route::post('/loginDemande',[AdminController::class,'login'])->name('login.users
 Route::get('users/dashboard',[UsersController::class,'index'])->name('users.dashboard');
 Route::get('users/logout',[UsersController::class,'logoutUsers'])->name('users.logout');
 Route::post('users/demande-carte',[UsersController::class,'demande_carte'])->name('demande.carte');
+Route::get('users/renouveCarte',[UsersController::class,'renouveCarte'])->name('renouveCarte.listes');

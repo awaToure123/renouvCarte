@@ -107,7 +107,7 @@
 
 	<main class="content-wrap">
 		<header class="content-head">
-			<h1>Demande de carte d identité</h1>
+			<h1>Renouvelle-de-carte</h1>
 
 			<div class="action">
 				<!-- Button trigger modal -->
@@ -117,7 +117,7 @@
 		</header>
 
 		<div class="content">
-        <livewire:demande-carte-identity />
+        <livewire:renouveau-carte />
 
 		</div>
 	</main>

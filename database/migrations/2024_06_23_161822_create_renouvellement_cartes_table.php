@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('renouvellement_cartes', function (Blueprint $table) {
             $table->id();
             $table->string('ancienne_carte');
+            $table->string('status');
             $table->foreignIdFor(Demandeur::class);
 
             $table->timestamps();
