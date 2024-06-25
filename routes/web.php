@@ -11,14 +11,12 @@ use App\Http\Controllers\UsersController;
 
 Route::get('/',[AdminController::class, 'index'])->name('home');
 
-Route::get('/contact', [contactController::class, 'contactez']);
 
 
-Route::get('/demand',[listeDemandeController::class, 'demander']);
-
-Route::get('/serve',[serviceController::class, 'servir']);
 
 Route::get('/adminDashboard',[AdminController::class,'home']);
+Route::get('/listesDemande',[AdminController::class,'listeDemande'])->name('listes.demande');
+Route::get('/detailsDemande/{id}',[AdminController::class,'detailsDemande'])->name('details.demande');
 
 Route::post('/registerDemande',[AdminController::class,'registerDemande'])->name('registerDemande.users');
 

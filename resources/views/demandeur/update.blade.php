@@ -114,17 +114,19 @@
 
 	<main class="content-wrap">
 		<header class="content-head">
-			<h1>Renouvelle-de-carte</h1>
+			<p>
+            <h1>Mise à jour du compte</h1><br>
+            </p>
 
 			<div class="action">
-				<!-- Button trigger modal -->
+
 
 
 			</div>
 		</header>
 
 		<div class="content">
-        <livewire:renouveau-carte />
+        <livewire:update-account />
 
 		</div>
 	</main>

@@ -76,11 +76,11 @@ class DemandeCarteIdentity extends Component
         }
 
         $demande_carte = new Demande_carte();
-        $demande_carte->photo = $this->photo->store('demande');
-        $demande_carte->acte_naissance = $this->acte_naissance->store('demande');
-        $demande_carte->certificat_residence = $this->certificat_residence->store('demande');
-        $demande_carte->piece_pere = $this->piece_pere ? $this->piece_pere->store('demande') : '';
-        $demande_carte->piece_mere = $this->piece_mere ? $this->piece_mere->store('demande') : '';
+        $demande_carte->photo = $this->photo->store('demande','public');
+        $demande_carte->acte_naissance = $this->acte_naissance->store('demande','public');
+        $demande_carte->certificat_residence = $this->certificat_residence->store('demande','public');
+        $demande_carte->piece_pere = $this->piece_pere ? $this->piece_pere->store('demande','public') : '';
+        $demande_carte->piece_mere = $this->piece_mere ? $this->piece_mere->store('demande','public') : '';
         $demande_carte->status = 'En-cours';
         $demande_carte->demandeur_id = $this->user[0]->id;
         $demande_carte->save();
@@ -96,19 +96,19 @@ class DemandeCarteIdentity extends Component
 
         // Mise à jour des fichiers si de nouveaux fichiers sont téléchargés
         if ($this->photo && !is_string($this->photo)) {
-            $demande_carte->photo = $this->photo->store('demande');
+            $demande_carte->photo = $this->photo->store('demande','public');
         }
         if ($this->acte_naissance && !is_string($this->acte_naissance)) {
-            $demande_carte->acte_naissance = $this->acte_naissance->store('demande');
+            $demande_carte->acte_naissance = $this->acte_naissance->store('demande','public');
         }
         if ($this->certificat_residence && !is_string($this->certificat_residence)) {
-            $demande_carte->certificat_residence = $this->certificat_residence->store('demande');
+            $demande_carte->certificat_residence = $this->certificat_residence->store('demande','public');
         }
         if ($this->piece_pere && !is_string($this->piece_pere)) {
-            $demande_carte->piece_pere = $this->piece_pere->store('demande');
+            $demande_carte->piece_pere = $this->piece_pere->store('demande','public');
         }
         if ($this->piece_mere && !is_string($this->piece_mere)) {
-            $demande_carte->piece_mere = $this->piece_mere->store('demande');
+            $demande_carte->piece_mere = $this->piece_mere->store('demande','public');
         }
 
         // Sauvegarde de la demande mise à jour

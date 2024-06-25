@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DemandeRequest;
+use App\Models\Demande_carte;
 use App\Models\Demandeur;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
@@ -17,6 +18,23 @@ class AdminController extends Controller
         return view("Admin.index");
     }
 
+
+    public function listeDemande(){
+
+        $demandeAll=Demande_carte::paginate(10);
+        return view('Admin.Demande.listes',compact('demandeAll'));
+    }
+
+    public function detailsDemande($id){
+
+        $demande=Demande_carte::find($id);
+        if(!$demande){
+            toastr()->error('Demande inexistante ou supprimer !');
+            return back();
+        }
+        return view('Admin.Demande.details',compact('demande'));
+
+    }
 
     public function index()
     {
