@@ -30,3 +30,4 @@ Route::get('users/dashboard',[UsersController::class,'index'])->name('users.dash
 Route::get('users/logout',[UsersController::class,'logoutUsers'])->name('users.logout');
 Route::post('users/demande-carte',[UsersController::class,'demande_carte'])->name('demande.carte');
 Route::get('users/renouveCarte',[UsersController::class,'renouveCarte'])->name('renouveCarte.listes');
+Route::get('users/pertesCarte',[UsersController::class,'perteCarte'])->name('perteCarte.users');

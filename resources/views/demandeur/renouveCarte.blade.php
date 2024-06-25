@@ -62,6 +62,13 @@
 							Renouvellement-carte
 						</a>
 					</li>
+
+                    <li>
+						<a href="{{route('perteCarte.users')}}" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 2H4C2.897 2 2 2.897 2 4v14c0 1.103.897 2 2 2h4l4 4 4-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 16h-5.586L12 20.414 9.586 18H4V4h16v14z"/></svg>
+							Signaler une perte
+						</a>
+					</li>
                     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

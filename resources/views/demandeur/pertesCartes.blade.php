@@ -62,6 +62,7 @@
 							Renouvellement-carte
 						</a>
 					</li>
+
                     <li>
 						<a href="{{route('perteCarte.users')}}" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 2H4C2.897 2 2 2.897 2 4v14c0 1.103.897 2 2 2h4l4 4 4-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 16h-5.586L12 20.414 9.586 18H4V4h16v14z"/></svg>
@@ -113,7 +114,9 @@
 
 	<main class="content-wrap">
 		<header class="content-head">
-			<h1>Demande de carte d identité</h1>
+			<p>
+            <h1>Signalement de la pertes de cartes</h1><br>
+            </p>
 
 			<div class="action">
 				<!-- Button trigger modal -->
@@ -123,7 +126,7 @@
 		</header>
 
 		<div class="content">
-        <livewire:demande-carte-identity />
+        <livewire:perste-carte-live />
 
 		</div>
 	</main>

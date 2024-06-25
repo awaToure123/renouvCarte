@@ -50,5 +50,20 @@ class UsersController extends Controller
         return view('demandeur.renouveCarte',compact('users'));
     }
 
+    public function perteCarte(){
+
+
+        $users=session()->get('users');
+        $auth=session()->get('auth');
+
+        if($auth ==null || $auth !=true){
+           toastr()->error('Veuillez vous authentifier');
+           return redirect()->route('home');
+
+        }
+
+        return view('demandeur.pertesCartes',compact('users'));
+    }
+
 
 }
