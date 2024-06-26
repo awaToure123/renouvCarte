@@ -66,12 +66,31 @@ class AdminController extends Controller
 
     public function valider_renouve_carte($id){
 
-        $demande=Demande_carte::find($id);
+        $demande=Renouvellement_carte::find($id);
         if(!$demande){
             toastr()->error('Demande n est plus d actualité ');
             return back();
         }
         $demande->status='Valider';
+        $message=new Message();
+        $message->texte='Votre demande à été valider avec succèss';
+        $message->demandeur_id=$demande->demandeur->id;
+        $demande->save();
+        toastr()->info('Demande valider avec succèss !');
+        return back();
+    }
+
+    public function valider_perte_carte($id){
+
+        $demande=PertesCartesUser::find($id);
+        if(!$demande){
+            toastr()->error('Demande n est plus d actualité ');
+            return back();
+        }
+        $demande->status='Valider';
+        $message=new Message();
+        $message->texte='Votre demande à été valider avec succèss';
+        $message->demandeur_id=$demande->demandeur->id;
         $demande->save();
         toastr()->info('Demande valider avec succèss !');
         return back();
@@ -87,6 +106,17 @@ class AdminController extends Controller
             return back();
         }
         return view('Admin.Demande.details',compact('demande'));
+
+    }
+
+    public function detailsPerteCarte($id){
+
+        $demande=PertesCartesUser::find($id);
+        if(!$demande){
+            toastr()->error('Demande inexistante ou supprimer !');
+            return back();
+        }
+        return view('Admin.Pertes.details',compact('demande'));
 
     }
 

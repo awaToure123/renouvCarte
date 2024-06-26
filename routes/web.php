@@ -26,7 +26,10 @@ Route::get('/listesPertesCarte',[AdminController::class,'listesPertesCarte'])->n
 
 Route::post('/loginDemande',[AdminController::class,'login'])->name('login.users');
 Route::post('/sende-message',[AdminController::class,'message'])->name('message.utilisateurs');
+Route::get('/detailsPertesCartes/{id}',[AdminController::class,'detailsPerteCarte'])->name('details.PerteCarte');
+Route::get('/validePertes-cartes/{id}',[AdminController::class,'valider_perte_carte'])->name('valider.perte.carte');
 
+Route::get('/valideRenouve-cartes/{id}',[AdminController::class,'valider_renouve_carte'])->name('valider.renouve.carte');
 
 // Users
 Route::get('users/dashboard',[UsersController::class,'index'])->name('users.dashboard');

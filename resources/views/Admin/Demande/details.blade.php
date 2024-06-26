@@ -199,7 +199,7 @@
                       <thead>
                         <tr>
                           <th>
-                          Nom
+                          Document
                           </th>
                           <th>
                           Acte de naissance
@@ -230,21 +230,21 @@
                           </td>
                           <td>
 
-                          <a href="{{ Storage::url($demande->acte_naissance) }}" target="_blank">Voir Photo</a>
+                          <a href="{{ Storage::url($demande->acte_naissance) }}" target="_blank">Voir Document</a>
 
                           </td>
                           <td>
 
-                          <a href="{{ Storage::url($demande->certificat_residence) }}" target="_blank">Voir Photo</a>
+                          <a href="{{ Storage::url($demande->certificat_residence) }}" target="_blank">Voir Document</a>
 
                           </td>
                           @if($demande->demandeur->age <18)
 
                           <td>
-                          <a href="{{ Storage::url($demande->piece_mere) }}" target="_blank">Voir Photo</a>
+                          <a href="{{ Storage::url($demande->piece_mere) }}" target="_blank">Voir Document</a>
                           </td>
                           <td>
-                          <a href="{{ Storage::url($demande->piece_pere) }}" target="_blank">Voir Photo</a>
+                          <a href="{{ Storage::url($demande->piece_pere) }}" target="_blank">Voir Document</a>
 
                           </td>
                           @else

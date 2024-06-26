@@ -221,6 +221,8 @@
                       <tbody>
 
                          @foreach($demandeAll as $demande)
+                         @if($demande->status =='En-cours')
+
                         <tr>
                           <td>
                            {{$demande->id}}
@@ -246,9 +248,9 @@
 
                           </td>
                         </tr>
-
+                       @endif
                         @endforeach
-
+<!-- #region -->
                       </tbody>
                     </table>
                   </div>

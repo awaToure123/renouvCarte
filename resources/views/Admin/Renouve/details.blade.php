@@ -229,15 +229,15 @@
                           </td>
                           <td>
 
-                          {{$demande->demandeur->nom}}
+                          {{$demande->created_at}}
                           </td>
-                          
+
                           <td>
                           <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye"></i></a>
 
                           </td>
                           <td>
-                          <a href="{{route('valider.demande.carte',['id'=>$demande->id])}}" class="btn btn-primary" ><i class="bi bi-bookmark-check"></i></a>
+                          <a href="{{route('valider.renouve.carte',['id'=>$demande->id])}}" class="btn btn-primary" ><i class="bi bi-bookmark-check"></i></a>
 
                           </td>
                         </tr>
