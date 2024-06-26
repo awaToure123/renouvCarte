@@ -29,7 +29,7 @@
 
           <li class="nav-item nav-category">Administration</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+            <a class="nav-link"  href="{{route('listesUsers.app')}}">
               <i class="menu-icon mdi mdi-account-circle-outline"></i>
               <span class="menu-title">Listes des utilisateurs</span>
               <i class="menu-arrow"></i>

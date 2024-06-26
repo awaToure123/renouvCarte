@@ -30,6 +30,8 @@ Route::get('/detailsPertesCartes/{id}',[AdminController::class,'detailsPerteCart
 Route::get('/validePertes-cartes/{id}',[AdminController::class,'valider_perte_carte'])->name('valider.perte.carte');
 
 Route::get('/valideRenouve-cartes/{id}',[AdminController::class,'valider_renouve_carte'])->name('valider.renouve.carte');
+Route::get('/listesUsers',[AdminController::class,'listesUsers'])->name('listesUsers.app');
+Route::post('/add-accountèusers',[AdminController::class,'addAccount'])->name('addAccount.users.admin');
 
 // Users
 Route::get('users/dashboard',[UsersController::class,'index'])->name('users.dashboard');

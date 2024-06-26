@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DemandeRequest;
+use App\Http\Requests\UsersRequest;
 use App\Models\Demande_carte;
 use App\Models\Demandeur;
 use App\Models\Message;
 use App\Models\PertesCartesUser;
 use App\Models\Renouvellement_carte;
+use App\Models\User;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -133,6 +135,14 @@ class AdminController extends Controller
         return back();
     }
 
+
+    public function listesUsers(){
+
+        $usersAll=User::paginate(5);
+        return view('Admin.users',[
+            'usersAll'=>$usersAll
+        ]);
+    }
     //
     public function listesPertesCarte(){
         $demandeAll=PertesCartesUser::paginate(10);
@@ -203,5 +213,33 @@ class AdminController extends Controller
         session()->put('auth',true);
 
         return redirect()->route('users.dashboard');
+    }
+
+
+
+    public function addAccount(UsersRequest $usersRequest){
+
+
+        if($usersRequest->password != $usersRequest->password_confirm){
+            flash()->error('Les mots de passes ne doivent pas etre différents ');
+            return back();
+        }
+
+        $user= new User();
+        $imagePath='';
+        $user->email=$usersRequest->email ?:'';
+        $user->password=Hash::make($usersRequest->password);
+        $user->nom=$usersRequest->nom;
+        $user->prenom=$usersRequest->nom;
+        $user->role='';
+        if($usersRequest->hasFile('profile')){
+            $imagePath = $usersRequest->file('profile')->store('users','public');
+        }
+        $user->profile=$imagePath;
+        $user->save();
+        flash()->info('Utilisateur crée avec succèss ! ');
+
+        return back();
+
     }
 }

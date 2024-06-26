@@ -190,8 +190,11 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Listes des demandes de renouveau</h4>
+                  <h4 class="card-title">Listes des utilisateurs</h4>
                   <p class="card-description">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Ajouter-un-utilisateur
+</button>
 
                   </p>
                   <div class="table-responsive pt-3">
@@ -208,113 +211,42 @@
                            Prenom
                           </th>
                           <th>
-                            Tel
+                            Email
                           </th>
                           <th>
-                            Date
-                          </th>
-                          <th>
-                            Details
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-
-                         @foreach($demandeAll as $demande)
-                         @if($demande->status =='En-cours')
-
-                        <tr>
-                          <td>
-                           {{$demande->id}}
-                          </td>
-                          <td>
-                          {{optional($demande->demandeur)->nom}}
-                          </td>
-                          <td>
-
-                            {{optional($demande->demandeur)->prenom}}
-
-                          </td>
-                          <td>
-                          {{optional($demande->demandeur)->tel}}
-
-                          </td>
-                          <td>
-                          {{$demande->created_at}}
-
-                          </td>
-                          <td>
-                          <a href="{{route('details.renouve.carte',['id'=>$demande->id])}}" class="btn btn-info"><i class="bi bi-eye"></i></a>
-
-                          </td>
-                        </tr>
-                       @endif
-                        @endforeach
-<!-- #region -->
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Listes des demandes de renouvellement de carte valider</h4>
-                  <p class="card-description">
-
-                  </p>
-                  <div class="table-responsive pt-3">
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th>
-                           Numéro
-                          </th>
-                          <th>
-                           Nom
-                          </th>
-                          <th>
-                           Prenom
-                          </th>
-                          <th>
-                            Tel
-                          </th>
-                          <th>
-                            Date
+                           Profile
                           </th>
 
                         </tr>
                       </thead>
                       <tbody>
 
-                         @foreach($demandeAll as $demande)
-                         @if($demande->status !='En-cours')
+                         @foreach($usersAll as $users)
+
 
                         <tr>
                           <td>
-                           {{$demande->id}}
+                           {{$users->id}}
                           </td>
                           <td>
-                          {{optional($demande->demandeur)->nom}}
+                          {{$users->nom}}
                           </td>
                           <td>
 
-                            {{optional($demande->demandeur)->prenom}}
+                            {{$users->prenom}}
 
                           </td>
                           <td>
-                          {{optional($demande->demandeur)->tel}}
+                          {{$users->email}}
 
                           </td>
                           <td>
-                          {{$demande->created_at}}
-
+                         
+                             <img src="{{asset('storage/'.$users->profile)}}" alt="">
                           </td>
 
                         </tr>
-                       @endif
+
                         @endforeach
 <!-- #region -->
                       </tbody>
@@ -328,6 +260,61 @@
           </div>
         </div>
         <!-- content-wrapper ends -->
+         <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Ajouter-utilisateur</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form  enctype="multipart/form-data" action="{{route('addAccount.users.admin')}}" method="POST">
+        @csrf
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Nom</label>
+    <input type="text" class="form-control" name="nom" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Prenom</label>
+    <input type="text" class="form-control" name="prenom" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Profile</label>
+    <input type="file" class="form-control" name="profile" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password-confirmation</label>
+    <input type="password" class="form-control" name="password_confirm" id="exampleInputPassword1">
+  </div>
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+
+    </div>
+  </div>
+</div>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         <!-- partial:../../partials/_footer.html -->
         @include('Admin.pages.footer')
         <!-- partial -->
