@@ -474,40 +474,35 @@
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered"> <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title fs-5" id="staticBackdropLabel">CONNEXION</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="/loginDemande" method="POST">
-                                @csrf
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-white border-0" name="emailOrTel" id="name" placeholder="Email ou Téléphone">
-                                        <label for="name">Identifiant</label>
-                                    </div>
-
-                               <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="password" class="form-control bg-white border-0" id="datetime" name="password" placeholder="Mot de passe"  />
-                                        <label for="datetime">Password</label>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-12">
-                                    <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
-                                </div>
-                            </div>
-                        </form>
+        <form action="/loginDemande" method="POST">
+          @csrf
+          <div class="row g-3">
+            <div class="col-md-12 mb-3"> <div class="form-floating">
+                <input type="text" class="form-control bg-white border-0" name="emailOrTel" id="name" placeholder="Email ou Téléphone">
+                <label for="name">Identifiant</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="password" class="form-control bg-white border-0" id="datetime" name="password" placeholder="Mot de passe">
+                <label for="datetime">Mot de passe</label>
+              </div>
+            </div>
+            <div class="col-12 mt-3"> <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
+            </div>
+          </div>
+        </form>
       </div>
-
     </div>
   </div>
 </div>
+
 
 
 

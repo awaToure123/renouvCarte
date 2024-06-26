@@ -122,10 +122,86 @@
 			</div>
 		</header>
 
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Faire une demande</button>
+
 		<div class="content">
-        <livewire:demande-carte-identity />
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Numéro</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date</th>
+                <th scope="col">Mise-à-jour</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($demandeAll as $demande)
+                <tr wire:key='{{$demande->id}}'>
+                    <th scope="row"> {{$demande->id}} </th>
+                    <td colspan="2"> {{$demande->status}} </td>
+                    <td>{{$demande->created_at}} </td>
+                    <td><a href="{{route('edit.demande.carte',['id'=>$demande->id])}}" class="btn btn-info" ><i class="bi bi-pencil"></i></but></td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 
 		</div>
 	</main>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Demande-de-cartes</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form  action="{{route('demande.carte.forms')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+
+                <label for="acte_naissance" class="form-label">Extrait de naissance</label>
+                <input type="file" class="form-control" id="acte_naissance" name="acte_naissance">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="photo" class="form-label">Photo</label>
+                <input type="file" class="form-control" id="photo" name="photo">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="certificat_residence" class="form-label">Certificat de résidence</label>
+                <input type="file" class="form-control" id="certificat_residence" name="certificat_residence">
+
+            </div>
+
+            @if($users[0]->age < 18)
+                <div class="mb-3">
+                    <label for="piece_pere" class="form-label">Pièce du père</label>
+                    <input type="file" class="form-control" id="piece_pere"  name="piece_pere">
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="piece_mere" class="form-label">Pièce de la mère</label>
+                    <input type="file" class="form-control" id="piece_mere" name="piece_mere">
+
+                </div>
+            @endif
+            <input type="hidden" class="form-control" id="piece_mere" name="id" value="{{$users[0]->id}}">
+
+            <button type="submit" class="btn btn-primary">Valider</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
 </div>
 @livewireScripts

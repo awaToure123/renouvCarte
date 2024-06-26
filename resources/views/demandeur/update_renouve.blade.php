@@ -124,7 +124,7 @@
 		</header>
 
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Faire une demande </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Mise à jour renouvellement</button>
 
 		<div class="content">
 
@@ -135,19 +135,17 @@
                 <th scope="col">Status</th>
                 <th scope="col">Date</th>
                 <th scope="col">Mise-à-jour</th>
-                <th scope="col">Details</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($renouveauCarteAll as $demande)
+
                 <tr wire:key='{{$demande->id}}'>
                     <th scope="row"> {{$demande->id}} </th>
                     <td > {{$demande->status}} </td>
                     <td>{{$demande->created_at}} </td>
                     <td > {{$demande->updated_at}} </td>
-                    <td><a class="btn btn-info" href="{{route('updateRenouveau.cartes.users',['id'=>$demande->id])}}" ><i class="bi bi-pencil"></i></></td>
                 </tr>
-            @endforeach
+
         </tbody>
     </table>
 
@@ -162,14 +160,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form enctype="multipart/form-data" method="POST" action="{{route('renouveCarte.addRenouCarte')}}">
+      <form enctype="multipart/form-data" method="POST" action="{{route('updateRenouveau.cartes.users.renouveau')}}">
             @csrf
             <div class="mb-3">
                 <label for="acte_naissance" class="form-label">Ancienne-carte</label>
                 <input type="file" class="form-control" id="acte_naissance" name="renouveauCarte">
 
             </div>
-            <input type="hidden" class="form-control" id="acte_naissance" name="id" value="{{$users[0]->id}}">
+            <input type="hidden" class="form-control" id="acte_naissance" name="id" value="{{$demande->id}}">
 
             <button type="submit" class="btn btn-primary">Vaiider</button>
         </form>

@@ -1,5 +1,5 @@
 @include('demandeur.styles')
-@livewireStyles
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <div class="dashboard">
 	<aside class="search-wrap">
@@ -114,46 +114,41 @@
 
 	<main class="content-wrap">
 		<header class="content-head">
-			<h1>Renouvelle-de-carte</h1>
+			<p>
+            <h1>Mise à jour pertes cartes</h1><br>
+            </p>
 
 			<div class="action">
 				<!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Mise à jour</button>
 
 
 			</div>
 		</header>
 
-
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Faire une demande </button>
-
 		<div class="content">
-
-    <table class="table">
+        <table class="table">
         <thead>
             <tr>
                 <th scope="col">Numéro</th>
                 <th scope="col">Status</th>
                 <th scope="col">Date</th>
                 <th scope="col">Mise-à-jour</th>
-                <th scope="col">Details</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($renouveauCarteAll as $demande)
+
                 <tr wire:key='{{$demande->id}}'>
                     <th scope="row"> {{$demande->id}} </th>
-                    <td > {{$demande->status}} </td>
+                    <td colspan="2"> {{$demande->status}} </td>
                     <td>{{$demande->created_at}} </td>
-                    <td > {{$demande->updated_at}} </td>
-                    <td><a class="btn btn-info" href="{{route('updateRenouveau.cartes.users',['id'=>$demande->id])}}" ><i class="bi bi-pencil"></i></></td>
                 </tr>
-            @endforeach
+
         </tbody>
     </table>
 
 		</div>
 	</main>
-
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -162,16 +157,35 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form enctype="multipart/form-data" method="POST" action="{{route('renouveCarte.addRenouCarte')}}">
+      <form  enctype="multipart/form-data"  method="POST" action="{{route('update.Pertes.Carte')}}">
             @csrf
             <div class="mb-3">
-                <label for="acte_naissance" class="form-label">Ancienne-carte</label>
-                <input type="file" class="form-control" id="acte_naissance" name="renouveauCarte">
 
+                <label for="acte_naissance" class="form-label">Extrait de naissance PDF</label>
+                <input type="file" class="form-control" id="acte_naissance" name="extrait_naissance">
             </div>
-            <input type="hidden" class="form-control" id="acte_naissance" name="id" value="{{$users[0]->id}}">
 
-            <button type="submit" class="btn btn-primary">Vaiider</button>
+            <div class="mb-3">
+                <label for="photo" class="form-label">Ancienn-carte PDF</label>
+                <input type="file" class="form-control" id="photo" name="ancienne_carte">
+            </div>
+
+            <div class="mb-3">
+                <label for="certificat_residence" class="form-label">Certificat de résidence PDF</label>
+                <input type="file" class="form-control" id="certificat_residence" name="certificat_de_perte">
+            </div>
+
+
+                <div class="mb-3">
+                    <label for="piece_pere" class="form-label">Date-de-perte PDF</label>
+                    <input type="date" class="form-control" id="piece_pere" name="date_perte">
+                </div>
+
+
+                <input type="hidden" class="form-control" id="piece_pere" name="id" value="{{$demande->id}}">
+
+
+            <button type="submit" class="btn btn-primary">Valider</button>
         </form>
       </div>
 

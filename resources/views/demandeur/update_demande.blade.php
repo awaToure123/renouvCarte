@@ -38,7 +38,7 @@
 					<li>
 						<a href="#">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6.855 14.365l-1.817 6.36a1.001 1.001 0 0 0 1.517 1.106L12 18.202l5.445 3.63a1 1 0 0 0 1.517-1.106l-1.817-6.36 4.48-3.584a1.001 1.001 0 0 0-.461-1.767l-5.497-.916-2.772-5.545c-.34-.678-1.449-.678-1.789 0L8.333 8.098l-5.497.916a1 1 0 0 0-.461 1.767l4.48 3.584zm2.309-4.379c.315-.053.587-.253.73-.539L12 5.236l2.105 4.211c.144.286.415.486.73.539l3.79.632-3.251 2.601a1.003 1.003 0 0 0-.337 1.056l1.253 4.385-3.736-2.491a1 1 0 0 0-1.109-.001l-3.736 2.491 1.253-4.385a1.002 1.002 0 0 0-.337-1.056l-3.251-2.601 3.79-.631z"/></svg>
-							Bienvenu : {{$users[0]->nom}}
+							{{$users[0]->nom}}
 						</a>
 					</li>
 
@@ -62,7 +62,6 @@
 							Renouvellement-carte
 						</a>
 					</li>
-
                     <li>
 						<a href="{{route('perteCarte.users')}}" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 2H4C2.897 2 2 2.897 2 4v14c0 1.103.897 2 2 2h4l4 4 4-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 16h-5.586L12 20.414 9.586 18H4V4h16v14z"/></svg>
@@ -114,7 +113,7 @@
 
 	<main class="content-wrap">
 		<header class="content-head">
-			<h1>Renouvelle-de-carte</h1>
+			<h1>Demande de carte d identité</h1>
 
 			<div class="action">
 				<!-- Button trigger modal -->
@@ -123,38 +122,35 @@
 			</div>
 		</header>
 
-
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Faire une demande </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Mise-à-jour</button>
 
 		<div class="content">
-
-    <table class="table">
+        <table class="table">
         <thead>
             <tr>
                 <th scope="col">Numéro</th>
                 <th scope="col">Status</th>
                 <th scope="col">Date</th>
                 <th scope="col">Mise-à-jour</th>
-                <th scope="col">Details</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($renouveauCarteAll as $demande)
+
                 <tr wire:key='{{$demande->id}}'>
                     <th scope="row"> {{$demande->id}} </th>
-                    <td > {{$demande->status}} </td>
+                    <td colspan="2"> {{$demande->status}} </td>
                     <td>{{$demande->created_at}} </td>
-                    <td > {{$demande->updated_at}} </td>
-                    <td><a class="btn btn-info" href="{{route('updateRenouveau.cartes.users',['id'=>$demande->id])}}" ><i class="bi bi-pencil"></i></></td>
+                    <td>{{$demande->upated_at}} </td>
                 </tr>
-            @endforeach
+
         </tbody>
     </table>
 
 		</div>
 	</main>
 
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -162,16 +158,44 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form enctype="multipart/form-data" method="POST" action="{{route('renouveCarte.addRenouCarte')}}">
+      <form  action="{{route('update.Demande.carte')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="acte_naissance" class="form-label">Ancienne-carte</label>
-                <input type="file" class="form-control" id="acte_naissance" name="renouveauCarte">
+
+                <label for="acte_naissance" class="form-label">Extrait de naissance</label>
+                <input type="file" class="form-control" id="acte_naissance" name="acte_naissance">
 
             </div>
-            <input type="hidden" class="form-control" id="acte_naissance" name="id" value="{{$users[0]->id}}">
 
-            <button type="submit" class="btn btn-primary">Vaiider</button>
+            <div class="mb-3">
+                <label for="photo" class="form-label">Photo</label>
+                <input type="file" class="form-control" id="photo" name="photo">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="certificat_residence" class="form-label">Certificat de résidence</label>
+                <input type="file" class="form-control" id="certificat_residence" name="certificat_residence">
+
+            </div>
+
+            @if($users[0]->age < 18)
+                <div class="mb-3">
+                    <label for="piece_pere" class="form-label">Pièce du père</label>
+                    <input type="file" class="form-control" id="piece_pere"  name="piece_pere">
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="piece_mere" class="form-label">Pièce de la mère</label>
+                    <input type="file" class="form-control" id="piece_mere" name="piece_mere">
+
+                </div>
+            @endif
+            <input type="hidden" class="form-control" id="piece_mere" name="id" value="{{$demande->id}}">
+
+            <button type="submit" class="btn btn-primary">Valider</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </form>
       </div>
 
@@ -179,3 +203,4 @@
   </div>
 </div>
 </div>
+@livewireScripts
