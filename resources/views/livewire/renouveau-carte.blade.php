@@ -25,7 +25,6 @@
         </tbody>
     </table>
 
-    <!-- Modal -->
     @if($showForms)
         <button type="button" class="btn btn-info" wire:click='closeForm'>Fermer la demande</button>
         <h1 class="modal-title fs-5" id="exampleModalLabel">Renouveller ma carte </h1>
@@ -33,13 +32,10 @@
         <form wire:submit.prevent="{{ $showUpdate ? 'update' : 'save' }}">
             @csrf
             <div class="mb-3">
-
                 <label for="acte_naissance" class="form-label">Ancienne-carte</label>
                 <input type="file" class="form-control" id="acte_naissance" wire:model="renouveauCarte">
                 @error('renouveauCarte') <span style="color:red">{{ $message }}</span> @enderror
             </div>
-
-
 
             <button type="submit" class="btn btn-primary">{{ $showUpdate ? 'Mettre à jour' : 'Valider la demande' }}</button>
         </form>

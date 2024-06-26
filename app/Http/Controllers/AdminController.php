@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DemandeRequest;
 use App\Models\Demande_carte;
 use App\Models\Demandeur;
+use App\Models\Message;
+use App\Models\PertesCartesUser;
+use App\Models\Renouvellement_carte;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -19,11 +22,62 @@ class AdminController extends Controller
     }
 
 
+    public function message(Request $request){
+
+        $request->validate([
+            "message"=> "required|min:2",
+            'id'=>'required|exists:demandeurs,id'
+        ]);
+
+        $message=new Message();
+        $message->message=$request->message;
+        $message->demandeur_id=$request->id;
+        $message->save();
+         toastr()->success('Message envoyé 📩');
+         return back();
+
+    }
+
+
     public function listeDemande(){
 
         $demandeAll=Demande_carte::paginate(10);
         return view('Admin.Demande.listes',compact('demandeAll'));
     }
+
+
+    // Partie des traitement de renouvellement de carte
+    public function listesRenouveau(){
+        $demandeAll=Renouvellement_carte::paginate(10);
+
+        return view('Admin.Renouve.listes',compact('demandeAll'));
+    }
+
+    public function detailsRenouveCarte($id){
+
+        $demande=Renouvellement_carte::find($id);
+        if(!$demande){
+            toastr()->error('Demande inexistante ou supprimer !');
+            return back();
+        }
+        return view('Admin.Renouve.details',compact('demande'));
+
+    }
+
+    public function valider_renouve_carte($id){
+
+        $demande=Demande_carte::find($id);
+        if(!$demande){
+            toastr()->error('Demande n est plus d actualité ');
+            return back();
+        }
+        $demande->status='Valider';
+        $demande->save();
+        toastr()->info('Demande valider avec succèss !');
+        return back();
+    }
+    //
+    // Partie des traitement de demande de carte
 
     public function detailsDemande($id){
 
@@ -36,6 +90,38 @@ class AdminController extends Controller
 
     }
 
+    public function valider_demande_carte($id){
+
+        $demande=Demande_carte::find($id);
+        if(!$demande){
+            toastr()->error('Demande n est plus d actualité ');
+            return back();
+        }
+        $demande->status='Valider';
+        $demande->save();
+        toastr()->info('Demande valider avec succèss !');
+        return back();
+    }
+
+    //
+    public function listesPertesCarte(){
+        $demandeAll=PertesCartesUser::paginate(10);
+
+        return view('Admin.Pertes.listes',compact('demandeAll'));
+    }
+
+    public function detailsPertesCarte($id){
+
+        $demande=PertesCartesUser::find($id);
+        if(!$demande){
+            toastr()->error('Demande inexistante ou supprimer !');
+            return back();
+        }
+        return view('Admin.Pertes.details',compact('demande'));
+
+    }
+
+        // Page d acceuil
     public function index()
     {
         return view('accueil');

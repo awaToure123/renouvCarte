@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->text('message');
-            $table->foreignIdFor(User::class);
+        
             $table->foreignIdFor(Demandeur::class);
 
             $table->timestamps();

@@ -26,11 +26,11 @@ class DemandeCarteIdentity extends Component
     public function rules(): array
     {
         return [
-            'acte_naissance' => 'required|mimes:pdf|max:1024',
-            'certificat_residence' => 'required|mimes:pdf|max:1024',
-            'piece_pere' => 'nullable|mimes:pdf|max:1024',
-            'piece_mere' => 'nullable|mimes:pdf|max:1024',
-            'photo' => 'required|mimes:png,jpg,jpeg|max:1024'
+            'acte_naissance' => 'required|mimes:pdf',
+            'certificat_residence' => 'required|mimes:pdf',
+            'piece_pere' => 'nullable|mimes:pdf',
+            'piece_mere' => 'nullable|mimes:pdf',
+            'photo' => 'required|mimes:png,jpg,jpeg'
         ];
     }
 

@@ -190,7 +190,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Details de la demande </h4>
+                  <h4 class="card-title">Details de renouvellement </h4>
                   <p class="card-description">
 
                   </p>
@@ -202,17 +202,12 @@
                           Nom
                           </th>
                           <th>
-                          Acte de naissance
+                         Anncienne-carte
                           </th>
                           <th>
-                          Certificat-de-residence
+                          Date
                           </th>
-                          <th>
-                          Piece-du-Papa
-                          </th>
-                          <th>
-                          Piece-de-la-mamam
-                          </th>
+
                           <th>
                           Message
                           </th>
@@ -225,37 +220,18 @@
 
                         <tr>
                           <td>
-                          <a href="{{ Storage::url($demande->photo) }}" target="_blank">Voir Photo</a>
+                          {{$demande->demandeur->nom}}
+                          </td>
+                          <td>
+
+                          <a href="{{ Storage::url($demande->ancienne_carte) }}" target="_blank">Voir Photo</a>
 
                           </td>
                           <td>
 
-                          <a href="{{ Storage::url($demande->acte_naissance) }}" target="_blank">Voir Photo</a>
-
+                          {{$demande->demandeur->nom}}
                           </td>
-                          <td>
-
-                          <a href="{{ Storage::url($demande->certificat_residence) }}" target="_blank">Voir Photo</a>
-
-                          </td>
-                          @if($demande->demandeur->age <18)
-
-                          <td>
-                          <a href="{{ Storage::url($demande->piece_mere) }}" target="_blank">Voir Photo</a>
-                          </td>
-                          <td>
-                          <a href="{{ Storage::url($demande->piece_pere) }}" target="_blank">Voir Photo</a>
-
-                          </td>
-                          @else
-                          <td>
-                             vide
-                          </td>
-                          <td>
-                          vide
-
-                          </td>
-                          @endif
+                          
                           <td>
                           <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye"></i></a>
 

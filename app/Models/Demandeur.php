@@ -14,4 +14,12 @@ class Demandeur extends Model
     public function demande_carte():HasMany{
         return $this->hasMany(Demande_carte::class);
     }
+
+    public function renouvellement_carte():HasMany {
+        return $this->hasMany(Renouvellement_carte::class);
+    }
+
+    public function PertesCartesUser():HasMany {
+        return $this->hasMany(PertesCartesUser::class);
+    }
 }

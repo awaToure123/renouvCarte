@@ -27,7 +27,7 @@
 
     <!-- Modal -->
     @if($showForms)
-        <button type="button" class="btn btn-info" wire:click='closeForm'>Signaler la perte</button>
+        <button type="button" class="btn btn-info" wire:click='closeForm'>Refermer</button>
 
         <form wire:submit.prevent="{{ $showUpdate ? 'update' : 'save' }}">
             @csrf
@@ -50,7 +50,7 @@
                 @error('certificat_de_perte') <span style="color:red">{{ $message }}</span> @enderror
             </div>
 
-            @if($user[0]->age < 18)
+            
                 <div class="mb-3">
                     <label for="piece_pere" class="form-label">Date-de-perte PDF</label>
                     <input type="date" class="form-control" id="piece_pere" wire:model="date_perte">
@@ -58,7 +58,7 @@
                 </div>
 
 
-            @endif
+
             <button type="submit" class="btn btn-primary">{{ $showUpdate ? 'Mettre à jour' : 'Valider la demande' }}</button>
         </form>
     @endif

@@ -27,17 +27,10 @@ class PersteCarteLive extends Component
     public function rules(): array
     {
         return [
-            'extrait_naissance' => 'required|mimes:pdf|max:1024',
-            'certificat_de_perte' => 'required|mimes:pdf|max:1024',
-            'ancienne_carte' => 'required|mimes:pdf|max:1024',
-            'date_perte' => 'required|',
-
-        ];[
-                'extrait_naissance.pdf'=>'Extrait de naissance doit etre un pdf',
-                'extrait_naissance.max'=>'Fichier trop volumineux ',
-                'certificat_de_pertee.pdf'=>'Certificat de perte  doit etre un pdf',
-                'certificat_de_pertee.max'=>'Fichier trop volumineux ',
-
+            'extrait_naissance' => 'required|mimes:pdf',
+            'certificat_de_perte' => 'required|mimes:pdf',
+            'ancienne_carte' => 'required|mimes:pdf',
+            'date_perte' => 'required',
 
         ];
     }
@@ -83,9 +76,9 @@ class PersteCarteLive extends Component
         }
 
         $PertesCartesUser = new PertesCartesUser();
-        $PertesCartesUser->ancienne_carte = $this->ancienne_carte->store('pertes');
-        $PertesCartesUser->certificat_de_perte = $this->certificat_de_perte->store('pertes');
-        $PertesCartesUser->extrait_naissance = $this->extrait_naissance->store('pertes');
+        $PertesCartesUser->ancienne_carte = $this->ancienne_carte->store('demande');
+        $PertesCartesUser->certificat_de_perte = $this->certificat_de_perte->store('demande');
+        $PertesCartesUser->extrait_naissance = $this->extrait_naissance->store('demande');
         $PertesCartesUser->date_perte = $this->date_perte;
         $PertesCartesUser->status = 'En-cours';
         $PertesCartesUser->demandeur_id = $this->user[0]->id;
@@ -102,13 +95,13 @@ class PersteCarteLive extends Component
 
         // Mise à jour des fichiers si de nouveaux fichiers sont téléchargés
         if ($this->ancienne_carte && !is_string($this->ancienne_carte)) {
-            $PertesCartesUser->ancienne_carte = $this->ancienne_carte->store('pertes');
+            $PertesCartesUser->ancienne_carte = $this->ancienne_carte->store('demande');
         }
         if ($this->extrait_naissance && !is_string($this->extrait_naissance)) {
-            $PertesCartesUser->extrait_naissance = $this->extrait_naissance->store('pertes');
+            $PertesCartesUser->extrait_naissance = $this->extrait_naissance->store('demande');
         }
         if ($this->certificat_de_perte && !is_string($this->certificat_de_perte)) {
-            $PertesCartesUser->certificat_de_perte = $this->certificat_de_perte->store('pertes');
+            $PertesCartesUser->certificat_de_perte = $this->certificat_de_perte->store('demande');
         }
         $PertesCartesUser->date_perte=$this->date_perte;
 

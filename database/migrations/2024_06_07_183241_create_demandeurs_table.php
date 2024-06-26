@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('email')->unique();
-            $table->string('age')->unique();
+            $table->string('age');
             $table->string('tel')->unique();
             $table->string('password');
             $table->string('profile')->nullable();
             $table->timestamps();
-        });
+        }); 
     }
 
     /**

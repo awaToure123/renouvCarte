@@ -190,7 +190,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Details de la demande </h4>
+                  <h4 class="card-title">Listes des demandes des pertes de carte</h4>
                   <p class="card-description">
 
                   </p>
@@ -199,72 +199,55 @@
                       <thead>
                         <tr>
                           <th>
-                          Nom
+                           Numéro
                           </th>
                           <th>
-                          Acte de naissance
+                           Nom
                           </th>
                           <th>
-                          Certificat-de-residence
+                           Prenom
                           </th>
                           <th>
-                          Piece-du-Papa
+                            Tel
                           </th>
                           <th>
-                          Piece-de-la-mamam
+                            Date
                           </th>
                           <th>
-                          Message
-                          </th>
-                          <th>
-                          Valider
+                            Details
                           </th>
                         </tr>
                       </thead>
                       <tbody>
 
+                         @foreach($demandeAll as $demande)
                         <tr>
                           <td>
-                          <a href="{{ Storage::url($demande->photo) }}" target="_blank">Voir Photo</a>
-
+                           {{$demande->id}}
+                          </td>
+                          <td>
+                          {{optional($demande->demandeur)->nom}}
                           </td>
                           <td>
 
-                          <a href="{{ Storage::url($demande->acte_naissance) }}" target="_blank">Voir Photo</a>
+                            {{optional($demande->demandeur)->prenom}}
 
                           </td>
                           <td>
-
-                          <a href="{{ Storage::url($demande->certificat_residence) }}" target="_blank">Voir Photo</a>
-
-                          </td>
-                          @if($demande->demandeur->age <18)
-
-                          <td>
-                          <a href="{{ Storage::url($demande->piece_mere) }}" target="_blank">Voir Photo</a>
-                          </td>
-                          <td>
-                          <a href="{{ Storage::url($demande->piece_pere) }}" target="_blank">Voir Photo</a>
-
-                          </td>
-                          @else
-                          <td>
-                             vide
-                          </td>
-                          <td>
-                          vide
-
-                          </td>
-                          @endif
-                          <td>
-                          <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye"></i></a>
+                          {{optional($demande->demandeur)->tel}}
 
                           </td>
                           <td>
-                          <a href="{{route('valider.demande.carte',['id'=>$demande->id])}}" class="btn btn-primary" ><i class="bi bi-bookmark-check"></i></a>
+                          {{$demande->created_at}}
+
+                          </td>
+                          <td>
+                          <a href="{{route('details.renouve.carte',['id'=>$demande->id])}}" class="btn btn-info"><i class="bi bi-eye"></i></a>
 
                           </td>
                         </tr>
+
+                        @endforeach
 
                       </tbody>
                     </table>
@@ -277,35 +260,8 @@
 
           </div>
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title fs-5" id="exampleModalLabel">Envoyer un message</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form class="forms-sample" method="POST" action="{{route('message.utilisateurs')}}" >
-                @csrf
-              <div class="form-group">
-                <label for="exampleInputUsername1">Text</label>
-
-                <textarea name="message" ></textarea>
-              </div>
-
-               <input type="hidden" name="id" value=" {{$demande->demandeur->id}}">
-
-
-              <button type="submit" class="btn btn-primary mr-2">Submit</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-            </form>
-        </div>
-        <div class="modal-footer">
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
         @include('Admin.pages.footer')
         <!-- partial -->
       </div>

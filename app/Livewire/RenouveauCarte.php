@@ -21,10 +21,12 @@ class RenouveauCarte extends Component
 
     public $renouveauCarte;
 
+    public $imageCarte;
+
     public function rules(): array
     {
         return [
-            'renouveauCarte' => 'required|mimes:pdf|max:1024',
+            'renouveauCarte' => 'required|mimes:pdf',
 
         ];
     }
@@ -48,7 +50,6 @@ class RenouveauCarte extends Component
     {
         $demande = Renouvellement_carte::findOrFail($id);
         $this->updateDemande = $demande;
-        $this->renouveauCarte = $demande->acte_naissance;
 
         $this->showUpdate = true;
         $this->showForms = true;
@@ -56,6 +57,7 @@ class RenouveauCarte extends Component
 
     public function save()
     {
+
         $this->validate();
 
         $todayCount = Renouvellement_carte::where('demandeur_id', $this->user[0]->id)
@@ -68,11 +70,14 @@ class RenouveauCarte extends Component
         }
 
         $Renouvellement_carte = new Renouvellement_carte();
-        $Renouvellement_carte->ancienne_carte = $this->renouveauCarte->store('renouveau');
+
+        $Renouvellement_carte->ancienne_carte = $this->renouveauCarte->store('demande');
 
         $Renouvellement_carte->status = 'En-cours';
         $Renouvellement_carte->demandeur_id = $this->user[0]->id;
         $Renouvellement_carte->save();
+
+
 
         $this->message = 'Informations envoyé avec succéss  !!';
 
@@ -85,16 +90,19 @@ class RenouveauCarte extends Component
         $Renouvellement_carte = Renouvellement_carte::find($this->updateDemande->id);
 
         // Mise à jour des fichiers si de nouveaux fichiers sont téléchargés
-        if ($this->renouveauCarte && !is_string($this->renouveauCarte   )) {
-            $Renouvellement_carte->ancienne_carte= $this->renouveauCarte->store('renouveau');
+        if($this->renouveauCarte){
+            $Renouvellement_carte->ancienne_carte= $this->renouveauCarte->store('demande');
+
+
         }
 
-        // Sauvegarde de la demande mise à jour
+
+
         $Renouvellement_carte->save();
 
         $this->message = 'Informations mise à jour avec succèss !';
 
-        $this->reset('renouveauCarte', 'showForms', 'showUpdate');
+        $this->reset('renouveauCarte', 'showForms', 'showUpdate','imageCarte');
     }
 
 
