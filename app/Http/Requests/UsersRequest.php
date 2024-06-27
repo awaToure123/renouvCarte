@@ -27,7 +27,9 @@ class UsersRequest extends FormRequest
             'profile'=>'nullable|image:png,jpg,jpeg',
             'email'=>'nullable|email|unique:users,email',
             'password'=>'required|min:4',
-            'password_confirm'=>'required|min:4'
+            'password_confirm'=>'required|min:4',
+            'tel'=>'nullable|unique:users,tel'
+
 
         ];
     }
@@ -49,6 +51,7 @@ class UsersRequest extends FormRequest
             'password_confirm.required'=>'Le mot de passe de confirmation est requis4',
             'password.min'=>'Le mot de passe est doit avoir aumoins 4 caractère',
             'password_confirm.min'=>'Le mot de passe est doit avoir aumoins 4 caractère',
+            'tel.unique'=>'Le téléphon existe déjà ',
 
         ];
     }

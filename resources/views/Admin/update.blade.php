@@ -190,10 +190,10 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Listes des utilisateurs</h4>
+                  <h4 class="card-title">Details du compte {{Auth::user()->nom}}</h4>
                   <p class="card-description">
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Ajouter-un-utilisateur
+  Mise à jour
 </button>
 
                   </p>
@@ -221,33 +221,32 @@
                       </thead>
                       <tbody>
 
-                         @foreach($usersAll as $users)
+
 
 
                         <tr>
                           <td>
-                           {{$users->id}}
+                          {{Auth::user()->email}}
                           </td>
                           <td>
-                          {{$users->nom}}
-                          </td>
-                          <td>
-
-                            {{$users->prenom}}
-
-                          </td>
-                          <td>
-                          {{$users->email}}
-
+                          {{Auth::user()->nom}}
                           </td>
                           <td>
 
-                             <img src="{{asset('storage/'.$users->profile)}}" alt="">
+                            {{Auth::user()->prenom}}
+
+                          </td>
+                          <td>
+                          {{Auth::user()->email}}
+                          </td>
+                          <td>
+
+                             <img src="{{asset('storage/'. Auth::user()->profile)}}" alt="">
                           </td>
 
                         </tr>
 
-                        @endforeach
+
 <!-- #region -->
                       </tbody>
                     </table>
@@ -271,37 +270,31 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form  enctype="multipart/form-data" action="{{route('addAccount.users.admin')}}" method="POST">
+      <form  enctype="multipart/form-data" action="{{route('update.Account.Users.admin')}}" method="POST">
         @csrf
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Nom</label>
-    <input type="text" class="form-control" name="nom" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" class="form-control" name="nom" id="exampleInputEmail1" value=" {{Auth::user()->nom}}" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Prenom</label>
-    <input type="text" class="form-control" name="prenom" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" class="form-control" name="prenom" value=" {{Auth::user()->prenom}}" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email</label>
-    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" class="form-control" name="email" value=" {{Auth::user()->email}}" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
-
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Tel</label>
-    <input type="text" class="form-control" name="tel" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" class="form-control" name="tel" value=" {{Auth::user()->tel}}" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Profile</label>
     <input type="file" class="form-control" name="profile" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" name="password" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password-confirmation</label>
-    <input type="password" class="form-control" name="password_confirm" id="exampleInputPassword1">
-  </div>
+
+  <input type="hidden" name="id" value=" {{Auth::user()->id}}">
   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
 
   <button type="submit" class="btn btn-primary">Submit</button>

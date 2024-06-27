@@ -40,9 +40,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item nav-category">help</li>
-          <li class="nav-item">
-
+         
           </li>
         </ul>
       </nav>
