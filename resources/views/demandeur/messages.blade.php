@@ -90,82 +90,40 @@
 
 	<main class="content-wrap">
 		<header class="content-head">
-			<p>
-            <h1>Mise à jour pertes cartes</h1><br>
-            </p>
+			<h1>Message</h1>
 
 			<div class="action">
 				<!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Mise à jour</button>
 
 
 			</div>
 		</header>
+
 
 		<div class="content">
         <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th scope="col">Numéro</th>
-                <th scope="col">Status</th>
+                <th scope="col">Messages</th>
                 <th scope="col">Date</th>
-                <th scope="col">Mise-à-jour</th>
+                <th scope="col">Supprimer</th>
             </tr>
         </thead>
         <tbody>
-
+            @foreach($messages as $demande)
                 <tr wire:key='{{$demande->id}}'>
-                    <th scope="row"> {{$demande->id}} </th>
-                    <td colspan="2"> {{$demande->status}} </td>
-                    <td>{{$demande->created_at}} </td>
+                <th scope="row"> {{$demande->id}} </th>
+                    <th > {{$demande->message}} </th>
+                    <td > {{$demande->created_at}} </td>
+                    <td><a href="{{route('delete.users.Message',['id'=>$demande->id])}}" class="btn btn-info" ><i class="bi bi-pencil"></i></but></td>
                 </tr>
-
+            @endforeach
         </tbody>
     </table>
 
 		</div>
 	</main>
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Demande-de-cartes</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <form  enctype="multipart/form-data"  method="POST" action="{{route('update.Pertes.Carte')}}">
-            @csrf
-            <div class="mb-3">
-
-                <label for="acte_naissance" class="form-label">Extrait de naissance PDF</label>
-                <input type="file" class="form-control" id="acte_naissance" name="extrait_naissance">
-            </div>
-
-            <div class="mb-3">
-                <label for="photo" class="form-label">Ancienn-carte PDF</label>
-                <input type="file" class="form-control" id="photo" name="ancienne_carte">
-            </div>
-
-            <div class="mb-3">
-                <label for="certificat_residence" class="form-label">Certificat de résidence PDF</label>
-                <input type="file" class="form-control" id="certificat_residence" name="certificat_de_perte">
-            </div>
 
 
-                <div class="mb-3">
-                    <label for="piece_pere" class="form-label">Date-de-perte PDF</label>
-                    <input type="date" class="form-control" id="piece_pere" name="date_perte">
-                </div>
-
-
-                <input type="hidden" class="form-control" id="piece_pere" name="id" value="{{$demande->id}}">
-
-
-            <button type="submit" class="btn btn-primary">Valider</button>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
 </div>

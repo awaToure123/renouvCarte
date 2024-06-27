@@ -494,6 +494,7 @@
                 <label for="datetime">Mot de passe</label>
               </div>
             </div>
+            <a href="{{route('reset_.assword.users')}}">Mot de passe oublié ?</a>
             <div class="col-12 mt-3"> <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
             </div>
           </div>
@@ -503,7 +504,79 @@
   </div>
 </div>
 
+<!-- Button trigger modal -->
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <center>
+       <h1 class="modal-title fs-5" id="exampleModalLabel">Creation-de-compte</h1>
+       </center>
+      </div>
+      <div class="modal-body">
+      <form action="/registerDemande" method="POST">
+        @csrf
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control bg-white border-0" name="nom" id="name" placeholder="Entrer votre nom">
+                <label for="name">Nom</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control bg-white border-0" id="email" name="prenom" placeholder="Entrer votre prenom" required>
+                <label for="email">Prenom</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="email" class="form-control bg-white border-0" id="datetime" name="email" placeholder="Votre Email"  />
+                <label for="datetime">Email</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="text" class="form-control bg-white border-0" id="datetime" name="tel" placeholder="Votre téléohone"  />
+                <label for="datetime">Téléphone</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="number" class="form-control bg-white border-0" id="datetime" name="age" placeholder="Votre age" min='1'  />
+                <label for="datetime">Age</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="password" class="form-control bg-white border-0" id="datetime" name="password" placeholder="Mot de passe"  />
+                <label for="datetime">Password</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="password" class="form-control bg-white border-0" id="datetime" name="password_confirm" placeholder="Mot de passe"  />
+                <label for="datetime">Password-confirmation</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+
+            <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
+        </div>
+
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+
+    </div>
+</form>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
         <!-- Tour Booking Start -->

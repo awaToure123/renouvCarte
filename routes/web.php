@@ -19,6 +19,8 @@ Route::post('/authentification-users',[AdminController::class,'doLogin'])->name(
 // Users
 Route::get('users/dashboard',[UsersController::class,'index'])->name('users.dashboard');
 Route::get('users/logout',[UsersController::class,'logoutUsers'])->name('users.logout');
+Route::get('users/reset_password',[UsersController::class,'reset_passwordusers'])->name('reset_.assword.users');
+Route::post('users/reset_password_utilisateur',[UsersController::class,'reset_password_users_account'])->name('reset.password.users.account');
 
 Route::get('users/logou-admin',[AdminController::class,'logoutUsers'])->name('logout.admin');
 Route::get('users/reset-password',[AdminController::class,'reset_password'])->name('reset.password.users');
@@ -64,3 +66,6 @@ Route::get('/update_users-account/{id}',[AdminController::class,'valider_renouve
     Route::post('users/add-new-pertesCarte',[UsersController::class,'addPertes'])->name('perteCarte.users.add');
     Route::get('users/pertesCarte-users/{id}',[UsersController::class,'edit_pertes'])->name('users.edit_pertes');
     Route::post('users/add-new-update-pertes',[UsersController::class,'updatePertesCarte'])->name('update.Pertes.Carte');
+
+    Route::get('users/message-envoye',[UsersController::class,'message'])->name('vue.message');
+    Route::get('users/delete_messages_users/{id}',[UsersController::class,'deleteMessage'])->name('delete.users.Message');

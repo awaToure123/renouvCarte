@@ -219,7 +219,7 @@
                             <h3 class="rate-percentage"> {{date('Y-m-d')}} </h3>
                             <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
                           </div>
-                        
+
                           <div class="d-none d-md-block">
                             <p class="statistics-title">Avg. Time on Site</p>
                             <h3 class="rate-percentage">2m:35s</h3>
@@ -245,8 +245,6 @@
 
                                 <div class="row">
                                   <div class="col-sm-4">
-                                  <h3 class="card-title card-title-dash text-white mb-4">Noumbre de demande : {{$noumbreDemande}} <h3/>
-                                  <h2 class="text-info">357</h2>
                                   </div>
                                   <div class="col-sm-8">
                                     <div class="status-summary-chart-wrapper pb-4">

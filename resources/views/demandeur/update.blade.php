@@ -1,5 +1,4 @@
 @include('demandeur.styles')
-@livewireStyles
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <div class="dashboard">
 	<aside class="search-wrap">
@@ -19,10 +18,10 @@
 		</div>
 	</aside>
 
+
 	<header class="menu-wrap">
 		<figure class="user">
 			<div class="user-avatar">
-				<img src="https://images.unsplash.com/photo-1440589473619-3cde28941638?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=42ebdb92a644e864e032a2ebccaa25b6&auto=format&fit=crop&w=100&q=80" alt="Amanda King">
 			</div>
 			<figcaption>
                 {{$users[0]->nom}}
@@ -32,13 +31,13 @@
 
 		<nav>
 			<section class="dicover">
-				<h3>Discover</h3>
+				<h3>Dasboard</h3>
 
 				<ul>
 					<li>
 						<a href="#">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6.855 14.365l-1.817 6.36a1.001 1.001 0 0 0 1.517 1.106L12 18.202l5.445 3.63a1 1 0 0 0 1.517-1.106l-1.817-6.36 4.48-3.584a1.001 1.001 0 0 0-.461-1.767l-5.497-.916-2.772-5.545c-.34-.678-1.449-.678-1.789 0L8.333 8.098l-5.497.916a1 1 0 0 0-.461 1.767l4.48 3.584zm2.309-4.379c.315-.053.587-.253.73-.539L12 5.236l2.105 4.211c.144.286.415.486.73.539l3.79.632-3.251 2.601a1.003 1.003 0 0 0-.337 1.056l1.253 4.385-3.736-2.491a1 1 0 0 0-1.109-.001l-3.736 2.491 1.253-4.385a1.002 1.002 0 0 0-.337-1.056l-3.251-2.601 3.79-.631z"/></svg>
-							Bienvenu : {{$users[0]->nom}}
+							{{$users[0]->nom}}
 						</a>
 					</li>
 
@@ -62,7 +61,6 @@
 							Renouvellement-carte
 						</a>
 					</li>
-
                     <li>
 						<a href="{{route('perteCarte.users')}}" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 2H4C2.897 2 2 2.897 2 4v14c0 1.103.897 2 2 2h4l4 4 4-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 16h-5.586L12 20.414 9.586 18H4V4h16v14z"/></svg>
@@ -85,17 +83,11 @@
 			</section>
 
 			<section class="tools">
-				<h3>Tools</h3>
 
 				<ul>
 					<li>
 
 
-					<li>
-						<a href="#">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 7L11 7 11 11 7 11 7 13 11 13 11 17 13 17 13 13 17 13 17 11 13 11z"/><path d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10c5.514,0,10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z"/></svg>
-							Create portfolio
-						</a>
 					</li>
 
 
@@ -131,4 +123,4 @@
 		</div>
 	</main>
 </div>
-@livewireScripts
+
