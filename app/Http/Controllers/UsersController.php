@@ -170,7 +170,7 @@ class UsersController extends Controller
         $renouveauCarteAll = Renouvellement_carte::where('demandeur_id', $users[0]->id)->get();
 
 
-        return view('demandeur.renouveCarte',compact('users','renouveauCarteAll'));
+        return view('users.renouveau.listes',compact('users','renouveauCarteAll'));
     }
 
     public function addRenouCarte(Request $request){
@@ -215,7 +215,7 @@ class UsersController extends Controller
             flash()->error('La demande ulterieure est supprimé');
             return back();
         }
-        return view('demandeur.update_renouve',compact('users','demande'));
+        return view('users.renouveau.update',compact('users','demande'));
      }
      public function updateRenouveau(Request $request){
 
@@ -251,7 +251,7 @@ class UsersController extends Controller
 
         }
         $demandeAll=PertesCartesUser::where('demandeur_id',$users[0]->id)->get();
-        return view('demandeur.pertesCartes',compact('users','demandeAll'));
+        return view('users.pertes.pertes_cartes',compact('users','demandeAll'));
     }
 
 
@@ -306,7 +306,7 @@ class UsersController extends Controller
             flash()->error('La demande ulterieure est supprimé');
             return back();
         }
-        return view('demandeur.pertes_update',compact('users','demande'));
+        return view('users.pertes.update',compact('users','demande'));
      }
 
      public function updatePertesCarte(Request $request){
@@ -431,5 +431,82 @@ public function deleteMessage($id){
     flash()->info('Message supprime avec succèss');
     return redirect()->back();
 }
+
+public function home_page(){
+
+    $users=session()->get('users');
+    $demandeAll=Demande_carte::where('demandeur_id', $users[0]->id)->get();
+    return view('users.home',[
+        'demandeAll'=>  $demandeAll,
+        'users'=> $users
+    ]);
+}
+
+
+public function pertes_cartes(){
+
+    $users=session()->get('users');
+    $demandeAll=Demande_carte::where('demandeur_id', $users[0]->id)->get();
+    return view('users.demande.pertes_cartes',[
+        'demandeAll'=>  $demandeAll,
+        'users'=> $users
+    ]);
+}
+
+
+public function update_account(){
+    $users=session()->get('users');
+
+    return view('users.update_information',[
+        'users'=>$users
+    ]);
+}
+
+
+public function user_update(Request $request){
+    $request->validate([
+        'nom'=>'required',
+        'prenom'=>'required',
+        'email'=>'required|email',
+        'tel'=>'required',
+        'age'=>'required',
+        'password'=>'nullable',
+        'password_confirm'=>'nullable',
+        'id'=>'required'
+    ],[
+        'nom.required'=>'Le nom est requis',
+        'prenom'=>'Le prénom est requis',
+        'email.email'=>'L email n est pas du bon format',
+        'email.required'=>'L email est requis ',
+        'tel'=>'Le numéro de téléphone est requis',
+        'age'=>'L age est resquis'
+    ]);
+
+    $user=Demandeur::find($request->id);
+
+    $user->nom=$request->nom;
+    $user->prenom=$request->prenom;
+    $user->email=$request->email;
+    $user->tel=$request->tel;
+    $user->age=$request->age;
+
+    if($request->password){
+
+        if($request->password != $request->password_confirm){
+               toastr()->error('Les mots de passes sont différents');
+               return back();
+        }
+        $user->password=Hash::make($request->password);
+    }
+
+
+    session()->forget('users');
+    session()->put('users',[$user]);
+    
+    $user->save();
+    toastr()->info('Informations modifier avec succès !');
+    return back();
+}
+
 }
 

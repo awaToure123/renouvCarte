@@ -57,6 +57,8 @@ Route::get('/update_users-account/{id}',[AdminController::class,'valider_renouve
     Route::get('users/demande-carte_update/{id}',[UsersController::class,'edit'])->name('edit.demande.carte');
     Route::post('users/upate-demande-carte',[UsersController::class,'updateDemande'])->name('update.Demande.carte');
 
+    Route::get('users/update_informations',[UsersController::class,'update_account'])->name('users.completes.informations');
+
     Route::get('users/renouveCarte',[UsersController::class,'renouveCarte'])->name('renouveCarte.listes');
     Route::post('users/add-demande-renouve',[UsersController::class,'addRenouCarte'])->name('renouveCarte.addRenouCarte');
     Route::get('users/demande-renouveCarte/{id}',[UsersController::class,'edit_renouve'])->name('updateRenouveau.cartes.users');
@@ -69,3 +71,5 @@ Route::get('/update_users-account/{id}',[AdminController::class,'valider_renouve
 
     Route::get('users/message-envoye',[UsersController::class,'message'])->name('vue.message');
     Route::get('users/delete_messages_users/{id}',[UsersController::class,'deleteMessage'])->name('delete.users.Message');
+    Route::get('/home/user',[UsersController::class,'home_page'])->name('home_page.user');
+    Route::post('users/update_users_informations_account',[UsersController::class,'user_update'])->name('user.update.informations');

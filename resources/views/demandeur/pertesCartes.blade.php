@@ -114,12 +114,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($demandeAll as $demande)
+            @foreach($renouveauCarteAll as $demande)
                 <tr wire:key='{{$demande->id}}'>
                     <th scope="row"> {{$demande->id}} </th>
-                    <td colspan="2"> {{$demande->status}} </td>
+                    <td > {{$demande->status}} </td>
                     <td>{{$demande->created_at}} </td>
-                    <td><a href="{{route('users.edit_pertes',['id'=>$demande->id])}}" class="btn btn-info" ><i class="bi bi-pencil"></i></a></td>
+                    <td > {{$demande->updated_at}} </td>
+                    <td><a class="btn btn-info" href="{{route('updateRenouveau.cartes.users',['id'=>$demande->id])}}" ><i class="bi bi-pencil"></i></></td>
                 </tr>
             @endforeach
         </tbody>
@@ -127,6 +128,7 @@
 
 		</div>
 	</main>
+
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -135,34 +137,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form  enctype="multipart/form-data"  method="POST" action="{{route('perteCarte.users.add')}}">
+      <form enctype="multipart/form-data" method="POST" action="{{route('renouveCarte.addRenouCarte')}}">
             @csrf
             <div class="mb-3">
+                <label for="acte_naissance" class="form-label">Ancienne-carte</label>
+                <input type="file" class="form-control" id="acte_naissance" name="renouveauCarte">
 
-                <label for="acte_naissance" class="form-label">Extrait de naissance PDF</label>
-                <input type="file" class="form-control" id="acte_naissance" name="extrait_naissance">
             </div>
+            <input type="hidden" class="form-control" id="acte_naissance" name="id" value="{{$users[0]->id}}">
 
-            <div class="mb-3">
-                <label for="photo" class="form-label">Ancienn-carte PDF</label>
-                <input type="file" class="form-control" id="photo" name="ancienne_carte">
-            </div>
-
-            <div class="mb-3">
-                <label for="certificat_residence" class="form-label">Certificat de résidence PDF</label>
-                <input type="file" class="form-control" id="certificat_residence" name="certificat_de_perte">
-            </div>
-
-
-                <div class="mb-3">
-                    <label for="piece_pere" class="form-label">Date-de-perte PDF</label>
-                    <input type="date" class="form-control" id="piece_pere" name="date_perte">
-                </div>
-
-                <input type="hidden" class="form-control" id="piece_pere" name="id" value="{{$users[0]->id}}">
-
-
-            <button type="submit" class="btn btn-primary">Valider</button>
+            <button type="submit" class="btn btn-primary">Vaiider</button>
         </form>
       </div>
 
