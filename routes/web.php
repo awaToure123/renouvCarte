@@ -49,8 +49,13 @@ Route::get('/listesUsers',[AdminController::class,'listesUsers'])->name('listesU
 Route::post('/add-accounteusers',[AdminController::class,'addAccount'])->name('addAccount.users.admin');
 Route::get('/update_users-account/{id}',[AdminController::class,'valider_renouve_carte'])->name('valider.renouve.carte');
 
+Route::get('/listesDemandeRendevous/{id}',[AdminController::class,'listeDemandeRendezVous'])->name('liste.DemandeRendez.Vous');
 
+Route::post('/add-rendezVousDemande',[AdminController::class,'prise_rendezVous'])->name('prise.rendez.Vous');
 
+Route::get('/listesDemandePertesRdendezVous/{id}',[AdminController::class,'listesPertesCarteRendezVous'])->name('listesPertes.CarteRendez.Vous');
+
+Route::get('/listesDemandePertesRdendezVousRenouveau/{id}',[AdminController::class,'listesRenouveauRendezVous'])->name('listes.Renouveau.Rendez.Vous');
 
 
     Route::post('users/demande-carte',[UsersController::class,'addDemande'])->name('demande.carte.forms');

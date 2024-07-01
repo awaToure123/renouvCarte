@@ -8,6 +8,7 @@ use App\Models\Demande_carte;
 use App\Models\Demandeur;
 use App\Models\Message;
 use App\Models\PertesCartesUser;
+use App\Models\RendezVous;
 use App\Models\Renouvellement_carte;
 use App\Models\User;
 use GrahamCampbell\ResultType\Success;
@@ -89,6 +90,34 @@ class AdminController extends Controller
     }
 
 
+    public function prise_rendezVous(Request $request){
+
+
+
+        $message=new Message();
+        $message->message=$request->motif . 'date'. $request->date.'Heure'.$request->heure;
+        $message->demandeur_id=$request->id;
+        $message->save();
+        toastr()->success('Prise de rendez vous ajouté avec succéss envoyé 📩');
+        return back();
+    }
+
+
+    public function listeDemandeRendezVous($id){
+        if(!Auth::check()){
+            toastr()->error('Veuilez vous connecté');
+
+            return redirect()->route("login_admin.admin");
+
+        }
+        $demande=Demande_carte::find($id);
+        if(! $demande){
+            toastr()->error('Erreur dans le formulaire ');
+              return back();
+        }
+        return view('Admin.Demande.rendezVous',compact('demande'));
+    }
+
     // Partie des traitement de renouvellement de carte
     public function listesRenouveau(){
         if(!Auth::check()){
@@ -100,6 +129,18 @@ class AdminController extends Controller
         $demandeAll=Renouvellement_carte::paginate(10);
 
         return view('Admin.Renouve.listes',compact('demandeAll'));
+    }
+
+    public function listesRenouveauRendezVous($id){
+        if(!Auth::check()){
+            toastr()->error('Veuilez vous connecté');
+
+            return redirect()->route("login_admin.admin");
+
+        }
+        $demande=Renouvellement_carte::find($id);
+
+        return view('Admin.Renouve.rendeVous',compact('demande'));
     }
 
     public function detailsRenouveCarte($id){
@@ -226,6 +267,22 @@ class AdminController extends Controller
         ]);
     }
     //
+    public function listesPertesCarteRendezVous($id){
+        if(!Auth::check()){
+            toastr()->error('Veuilez vous connecté');
+
+            return redirect()->route("login_admin.admin");
+
+        }
+        $demande=PertesCartesUser::find($id);
+        if(!$demande){
+            toastr()->error('Veuillez rénitialiser la page');
+            return back();
+        }
+
+        return view('Admin.Pertes.rendeVous',compact('demande'));
+    }
+
     public function listesPertesCarte(){
         if(!Auth::check()){
             toastr()->error('Veuilez vous connecté');
@@ -253,6 +310,7 @@ class AdminController extends Controller
         return view('Admin.Pertes.details',compact('demande'));
 
     }
+
 
         // Page d acceuil
     public function index()
@@ -343,9 +401,11 @@ class AdminController extends Controller
     }
 
 
+
+
     public function login_admin(){
 
-      
+
 
         return view('Admin.login');
     }

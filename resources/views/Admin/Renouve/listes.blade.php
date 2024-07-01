@@ -284,6 +284,9 @@
                           <th>
                             Date
                           </th>
+                          <th>
+                            Prise Rendez-vous
+                          </th>
 
                         </tr>
                       </thead>
@@ -312,6 +315,11 @@
                           {{$demande->created_at}}
 
                           </td>
+                          <td>
+                          <a href="{{route('listes.Renouveau.Rendez.Vous',['id'=>$demande->id])}}" class="btn btn-success"><i class="bi bi-calendar-check"></i></a>
+
+                          </td>
+
 
                         </tr>
                        @endif

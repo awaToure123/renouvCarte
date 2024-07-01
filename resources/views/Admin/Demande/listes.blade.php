@@ -282,6 +282,9 @@
                           <th>
                             Date
                           </th>
+                          <th>
+                            Rendez-vous
+                          </th>
 
                         </tr>
                       </thead>
@@ -306,6 +309,10 @@
                           </td>
                           <td>
                           {{$demande->created_at}}
+
+                          </td>
+                          <td>
+                          <a href="{{route('liste.DemandeRendez.Vous',['id'=>$demande->id])}}" class="btn btn-success"><i class="bi bi-calendar-check"></i></a>
 
                           </td>
 
