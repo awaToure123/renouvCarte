@@ -27,7 +27,7 @@ class UsersController extends Controller
 
         }
         $demandeAll=Demande_carte::where('demandeur_id', $users[0]->id)->get();
-        return view('demandeur.dashboard',compact('users','demandeAll'));
+        return view('users.home',compact('users','demandeAll'));
     }
 
 
@@ -502,7 +502,7 @@ public function user_update(Request $request){
 
     session()->forget('users');
     session()->put('users',[$user]);
-    
+
     $user->save();
     toastr()->info('Informations modifier avec succès !');
     return back();

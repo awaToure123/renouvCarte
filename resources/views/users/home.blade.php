@@ -51,7 +51,7 @@
             <a class="nav-link js-scroll-trigger" href="{{route('users.completes.informations')}}">Mes informations</a>
           </li>
           <li class="nav-item">
-          <ti class="nav-link js-scroll-trigger" href="{{route('users.logout')}}">Deconnection</a>
+          <a class="nav-link js-scroll-trigger" href="{{route('users.logout')}}">Deconnection</a>
           </li>
 
         </ul>
