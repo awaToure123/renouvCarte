@@ -26,10 +26,9 @@ class DemandeRequest extends FormRequest
             'prenom'=>'required',
             'email'=>'required|email|unique:demandeurs,email',
             'tel'=>'required|unique:demandeurs,tel',
-            'email'=>'required|email|unique:demandeurs,tel',
             'password'=>'required',
             'password_confirm'=>'required',
-            'age'=>'required',
+
 
 
         ];

@@ -331,7 +331,7 @@ class AdminController extends Controller
         $user->nom=$demandeRequest->nom;
         $user->prenom=$demandeRequest->prenom;
         $user->email=$demandeRequest->email;
-        $user->age=$demandeRequest->age ?:0;
+        $user->status='off';
         $user->tel=$demandeRequest->tel;
         $user->password= Hash::make($demandeRequest->password) ;
 
@@ -400,6 +400,16 @@ class AdminController extends Controller
 
     }
 
+
+    public function loginDemandeur(){
+
+        return view('users.login');
+    }
+
+    public function registerDemandeur(){
+        return view('users.register');
+
+    }
 
 
 

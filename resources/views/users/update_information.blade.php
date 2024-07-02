@@ -110,7 +110,7 @@
     <div class="row g-3">
         <div class="col-md-6">
             <div class="form-floating">
-                <input type="text" class="form-control " name="nom" id="name" value="{{$users[0]->nom}}" placeholder="Entrer votre nom">
+                <input type="text" class="form-control " name="nom" id="name" value="{{$users[0]->nom}}" placeholder="Entrer votre nom" required >
                 <label for="name">Nom</label>
             </div>
         </div>
@@ -128,29 +128,47 @@
         </div>
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="text" class="form-control "  value="{{$users[0]->tel}}" id="datetime" name="tel" placeholder="Votre téléohone"  />
+                <input type="text" class="form-control "  value="{{$users[0]->tel}}" id="datetime" name="tel" placeholder="Votre téléohone" required  />
                 <label for="datetime">Téléphone</label>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="number" class="form-control "  value="{{$users[0]->age}}" id="datetime" name="age" placeholder="Votre age" min='1'  />
+                <input type="number" class="form-control "  value="{{$users[0]->age}}" id="datetime" name="age" placeholder="Votre age" required   />
                 <label for="datetime">Age</label>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="password" class="form-control " id="datetime" name="password" placeholder="Mot de passe"  />
-                <label for="datetime">Password</label>
+                <input type="text" class="form-control "  value="{{$users[0]->professession}}" id="datetime" name="professession" placeholder="Profession" required   />
+                <label for="datetime">Profesession</label>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="password" class="form-control " id="datetime" name="password_confirm" placeholder="Mot de passe"  />
-                <label for="datetime">Password-confirmation</label>
+                <select name="situation_matrimonial" id="">
+                    <option value="{{$users[0]->situation_matrimonial}}">{{$users[0]->situation_matrimonial}}</option>
+                    <option value="Celibataire">Celibataire</option>
+                    <option value="Mariee">Mariee</option>
+                </select>
+                <label for="datetime">Situation Matrimonial</label>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="text" class="form-control "  value="{{$users[0]->adresse}}" id="datetime" name="adresse" placeholder="Votre adresse" required   />
+                <label for="datetime">Adrese</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="text" class="form-control "  value="{{$users[0]->adresse}}" id="datetime" name="region" placeholder="Votre Region" required  />
+                <label for="datetime">Region</label>
+            </div>
+        </div>
+
         <input type="hidden" class="form-control "  value="{{$users[0]->id}}" id="datetime" name="id"   />
 
 

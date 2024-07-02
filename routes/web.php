@@ -16,7 +16,11 @@ Route::post('/loginDemande',[AdminController::class,'login'])->name('login.users
 Route::get('/login-users',[AdminController::class,'login_admin'])->name('login_admin.admin');
 Route::post('/authentification-users',[AdminController::class,'doLogin'])->name('login_admin.admin.doLogin');
 
-// Users
+
+Route::get('/AuthentificationDemandeur',[AdminController::class,'loginDemandeur'])->name('login.Demandeur');
+Route::get('/registerDemandeur',[AdminController::class,'registerDemandeur'])->name('register.Demandeur');
+
+// Users    
 Route::get('users/dashboard',[UsersController::class,'index'])->name('users.dashboard');
 Route::get('users/logout',[UsersController::class,'logoutUsers'])->name('users.logout');
 Route::get('users/reset_password',[UsersController::class,'reset_passwordusers'])->name('reset_.assword.users');

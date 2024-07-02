@@ -52,6 +52,11 @@ class UsersController extends Controller
 
     public function addDemande(DemandeCarteRequest $request){
 
+        $user=session()->get('users');
+        if($user[0]->status =='off'){
+           toastr()->error('Veuillez completer vos informations');
+           return redirect()->route('users.completes.informations');
+        }
         $todayCount = Demande_carte::where('demandeur_id', $request->id)
         ->whereDate('created_at', date('Y-m-d'))
         ->count();
@@ -152,6 +157,12 @@ class UsersController extends Controller
 
     public function addRenouCarte(AddRenouveCarteRequest $request){
 
+        $user=session()->get('users');
+        if($user[0]->status =='off'){
+           toastr()->error('Veuillez completer vos informations');
+           return redirect()->route('users.completes.informations');
+        }
+
         $todayCount = Renouvellement_carte::where('demandeur_id', $request->id)
         ->whereDate('created_at', date('Y-m-d'))
         ->count();
@@ -225,6 +236,11 @@ class UsersController extends Controller
 
     public function addPertes(AddPertesCartesRequest $request){
 
+        $user=session()->get('users');
+         if($user[0]->status =='off'){
+            toastr()->error('Veuillez completer vos informations');
+            return redirect()->route('users.completes.informations');
+        }
         $todayCount = PertesCartesUser::where('demandeur_id', $request->id)
             ->whereDate('created_at', date('Y-m-d'))
             ->count();
@@ -258,6 +274,7 @@ class UsersController extends Controller
      }
 
      public function updatePertesCarte(updatePertesCartesRequest $request){
+
 
 
         $demande_carte = PertesCartesUser::find( $request->id );
@@ -385,7 +402,7 @@ public function update_account(){
 }
 
 
-public function user_update(UpdateUsersRequest $request){
+public function user_update(Request $request){
 
 
     $user=Demandeur::find($request->id);
@@ -394,18 +411,13 @@ public function user_update(UpdateUsersRequest $request){
     $user->prenom=$request->prenom;
     $user->email=$request->email;
     $user->tel=$request->tel;
+    $user->professession=$request->professession;
+    $user->region=$request->region;
+    $user->adresse=$request->adresse;
     $user->age=$request->age;
+    $user->situation_matrimonial=$request->situation_matrimonial;
 
-    if($request->password){
-
-        if($request->password != $request->password_confirm){
-               toastr()->error('Les mots de passes sont différents');
-               return back();
-        }
-        $user->password=Hash::make($request->password);
-    }
-
-
+    $user->status='on';
     session()->forget('users');
     session()->put('users',[$user]);
 

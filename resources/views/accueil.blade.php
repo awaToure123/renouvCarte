@@ -1,477 +1,670 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<style>
-    .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-</style>
-    @include('templates.heade')
-
-    <body>
-
-    @include('templates.navBar')
+  <head>
+    <title>Nitro &mdash; Website Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-        <!-- About Start -->
-        <div class="container-fluid about py-5">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-5">
-                        <div class="h-100" style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
-                            <img src="img/sene.jpg" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                    </div>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/users/fonts/icomoon/style.css')}}">
 
-                    <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
-                        <h5 class="section-about-title pe-3"></h5>
-                        <h1 class="mb-4">Renouvecarte <span class="text-primary">Travela</span></h1>
-                        <p class="mb-4">
-                        <p>Le Sénégal, situé à l'extrémité ouest de l'Afrique, possède une riche histoire qui remonte à plusieurs millénaires. Dès le 7ème siècle, les empires du Ghana, du Mali et du Songhaï ont influencé la région avec leurs cultures et leurs échanges commerciaux. Au 15ème siècle, les explorateurs portugais ont été les premiers Européens à arriver, suivis par les Français qui ont colonisé le Sénégal au 19ème siècle. Le pays a joué un rôle crucial dans la traite transatlantique des esclaves, notamment à travers l'île de Gorée, un site mémorable de cette période sombre.
+    <link rel="stylesheet" href="{{ asset('/users/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/users/css/jquery-ui.css') }}">
+<link rel="stylesheet" href="{{ asset('/users/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/users/css/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/users/css/jquery.fancybox.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/users/css/bootstrap-datepicker.css') }}">
+<link rel="stylesheet" href="{{ asset('/users/fonts/flaticon/font/flaticon.css') }}">
+<link rel="stylesheet" href="{{ asset('/users/css/aos.css') }}">
+<link rel="stylesheet" href="{{ asset('/users/css/style.css') }}">
 
-Le Sénégal a acquis son indépendance de la France le 4 avril 1960, sous la direction de son premier président, Léopold Sédar Senghor, un éminent poète et homme politique. Depuis lors, le Sénégal a été reconnu pour sa stabilité politique et son engagement en faveur de la démocratie en Afrique de l'Ouest. Dakar, la capitale vibrante et culturelle, est le cœur économique et culturel du pays.
-
-Aujourd'hui, le Sénégal est réputé pour sa diversité culturelle, ses traditions riches, et son accueil chaleureux, symbolisé par la célèbre hospitalité sénégalaise ou "teranga". De plus, le pays continue de jouer un rôle important dans la région, tant sur le plan politique qu'économique.</p><br><!-- About Text 1 -->
-                        </p>
-                        <div class="row gy-2 gx-4 mb-4">
-                            <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>First Class Flights</p>
-                            </div>
-
-                        </div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
-
-        <!-- Services Start -->
-        <div class="container-fluid bg-light service py-5">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">Searvices</h5>
-                    <h1 class="mb-0">Our Services</h1>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-6">
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                    <div class="service-content text-end">
-                                        <h5 class="mb-4">WorldWide Tours</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                        </p>
-                                    </div>
-                                    <div class="service-icon p-4">
-                                        <i class="fa fa-globe fa-4x text-primary"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center  bg-white border border-primary rounded p-4 pe-0">
-                                    <div class="service-content text-end">
-                                        <h5 class="mb-4">Hotel Reservation</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                        </p>
-                                    </div>
-                                    <div class="service-icon p-4">
-                                        <i class="fa fa-hotel fa-4x text-primary"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                    <div class="service-content text-end">
-                                        <h5 class="mb-4">Travel Guides</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                        </p>
-                                    </div>
-                                    <div class="service-icon p-4">
-                                        <i class="fa fa-user fa-4x text-primary"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                    <div class="service-content text-end">
-                                        <h5 class="mb-4">Event Management</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                        </p>
-                                    </div>
-                                    <div class="service-icon p-4">
-                                        <i class="fa fa-cog fa-4x text-primary"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                    <div class="service-icon p-4">
-                                        <i class="fa fa-globe fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="service-content">
-                                        <h5 class="mb-4">WorldWide Tours</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                    <div class="service-icon p-4">
-                                        <i class="fa fa-hotel fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="service-content">
-                                        <h5 class="mb-4">Hotel Reservation</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                    <div class="service-icon p-4">
-                                        <i class="fa fa-user fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="service-content">
-                                        <h5 class="mb-4">Travel Guides</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                    <div class="service-icon p-4">
-                                        <i class="fa fa-cog fa-4x text-primary"></i>
-                                    </div>
-                                    <div class="service-content">
-                                        <h5 class="mb-4">Event Management</h5>
-                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="text-center">
-                            <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Service More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Services End -->
-
-        <!-- Destination Start -->
-
-        <!-- Destination End -->
-
-        <!-- Explore Tour Start -->
-
-        <!-- Explore Tour Start -->
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
-   <!-- Button trigger modal -->
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <form action="/registerDemande" method="POST">
-        @csrf
-    <div class="row g-3">
-        <div class="col-md-6">
-            <div class="form-floating">
-                <input type="text" class="form-control bg-white border-0" name="nom" id="name" placeholder="Entrer votre nom">
-                <label for="name">Nom</label>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-floating">
-                <input type="text" class="form-control bg-white border-0" id="email" name="prenom" placeholder="Entrer votre prenom" required>
-                <label for="email">Prenom</label>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="email" class="form-control bg-white border-0" id="datetime" name="email" placeholder="Votre Email"  />
-                <label for="datetime">Email</label>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="text" class="form-control bg-white border-0" id="datetime" name="tel" placeholder="Votre téléohone"  />
-                <label for="datetime">Téléphone</label>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="number" class="form-control bg-white border-0" id="datetime" name="age" placeholder="Votre age" min='1'  />
-                <label for="datetime">Age</label>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="password" class="form-control bg-white border-0" id="datetime" name="password" placeholder="Mot de passe"  />
-                <label for="datetime">Password</label>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="password" class="form-control bg-white border-0" id="datetime" name="password_confirm" placeholder="Mot de passe"  />
-                <label for="datetime">Password-confirmation</label>
-            </div>
-        </div>
-
-        <div class="col-12">
-            <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
-        </div>
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
     </div>
-</form>
   </div>
 
-</div>
 
+  <div class="site-wrap">
 
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered"> <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title fs-5" id="staticBackdropLabel">CONNEXION</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
       </div>
-      <div class="modal-body">
-        <form action="/loginDemande" method="POST">
-          @csrf
-          <div class="row g-3">
-            <div class="col-md-12 mb-3"> <div class="form-floating">
-                <input type="text" class="form-control bg-white border-0" name="emailOrTel" id="name" placeholder="Email ou Téléphone">
-                <label for="name">Identifiant</label>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="password" class="form-control bg-white border-0" id="datetime" name="password" placeholder="Mot de passe">
-                <label for="datetime">Mot de passe</label>
-              </div>
-            </div>
-            <a href="{{route('reset_.assword.users')}}">Mot de passe oublié ?</a>
-            <div class="col-12 mt-3"> <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2">
+            <h1 class="mb-0 site-logo"><a href="/" class="h2 mb-0">Nitro<span class="text-primary">.</span> </a></h1>
+          </div>
+
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href="{{route('register.Demandeur')}}" class="nav-link">Demande</a></li>
+              
+
+                <li><a href="#services-section" class="nav-link">Services</a></li>
+
+                <li><a cl href="{{route('login.Demandeur')}}" class="#contact-section nav-link">Connection</a></li>
+                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+
+          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+
+        </div>
+      </div>
+
+    </header>
+
+
+
+    <div class="site-blocks-cover overlay" style="background-image: url(/users/images/home1.jpg);" data-aos="fade" id="home-section">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+
+          <div class="col-md-8 mt-lg-5 text-center">
+            <h1 class="text-uppercase" data-aos="fade-up"><span style="color:green">Un peuple </span><span style="color:yellow;">un but</span>  <span style="color:red;">une foi </span></h1>
+            <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio soluta eius error.</p>
+            <div data-aos="fade-up" data-aos-delay="100">
+              <a href="#contact-section" class="btn smoothscroll btn-primary mr-2 mb-2">Get In Touch</a>
             </div>
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Button trigger modal -->
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-       <center>
-       <h1 class="modal-title fs-5" id="exampleModalLabel">Creation-de-compte</h1>
-       </center>
-      </div>
-      <div class="modal-body">
-      <form action="/registerDemande" method="POST">
-        @csrf
-    <div class="row g-3">
-        <div class="col-md-6">
-            <div class="form-floating">
-                <input type="text" class="form-control bg-white border-0" name="nom" id="name" placeholder="Entrer votre nom">
-                <label for="name">Nom</label>
-            </div>
         </div>
-        <div class="col-md-6">
-            <div class="form-floating">
-                <input type="text" class="form-control bg-white border-0" id="email" name="prenom" placeholder="Entrer votre prenom" required>
-                <label for="email">Prenom</label>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="email" class="form-control bg-white border-0" id="datetime" name="email" placeholder="Votre Email"  />
-                <label for="datetime">Email</label>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="text" class="form-control bg-white border-0" id="datetime" name="tel" placeholder="Votre téléohone"  />
-                <label for="datetime">Téléphone</label>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="number" class="form-control bg-white border-0" id="datetime" name="age" placeholder="Votre age" min='1'  />
-                <label for="datetime">Age</label>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="password" class="form-control bg-white border-0" id="datetime" name="password" placeholder="Mot de passe"  />
-                <label for="datetime">Password</label>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="password" class="form-control bg-white border-0" id="datetime" name="password_confirm" placeholder="Mot de passe"  />
-                <label for="datetime">Password-confirmation</label>
-            </div>
-        </div>
-
-        <div class="col-12">
-
-            <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
-        </div>
-
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-
-    </div>
-</form>
       </div>
 
+      <a href="#about-section" class="mouse smoothscroll">
+        <span class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </span>
+      </a>
     </div>
-  </div>
-</div>
 
 
-        <!-- Tour Booking Start -->
+    <div class="site-section cta-big-image" id="about-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title mb-3">About Us</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="">
+            <figure class="circle-bg">
+            <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
+            </figure>
+          </div>
+          <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
+            <div class="mb-4">
+              <h3 class="h3 mb-4 text-black">For the next great business</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo tempora cumque eligendi in nostrum labore omnis quaerat.</p>
+
+            </div>
+
+
+
+            <div class="mb-4">
+              <ul class="list-unstyled ul-check success">
+                <li>Officia quaerat eaque neque</li>
+                <li>Possimus aut consequuntur incidunt</li>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipisicing elit</li>
+              </ul>
+
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
 
-        <!-- Testimonial End -->
 
-        <!-- Subscribe Start -->
-        <div class="container-fluid subscribe py-5">
-            <div class="container text-center py-5">
-                <div class="mx-auto text-center" style="max-width: 900px;">
-                    <h5 class="subscribe-title px-3">Subscribe</h5>
-                    <h1 class="text-white mb-4">Our Newsletter</h1>
-                    <p class="text-white mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tempore nam, architecto doloremque velit explicabo? Voluptate sunt eveniet fuga eligendi! Expedita laudantium fugiat corrupti eum cum repellat a laborum quasi.
-                    </p>
-                    <div class="position-relative mx-auto">
-                        <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
-                    </div>
+
+
+
+    <section class="site-section border-bottom bg-light" id="services-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title mb-3">Our Services</h2>
+          </div>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4">
+              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-startup"></span></div>
+              <div>
+                <h3>Business Consulting</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4">
+              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-graphic-design"></span></div>
+              <div>
+                <h3>Market Analysis</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4">
+              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-settings"></span></div>
+              <div>
+                <h3>User Monitoring</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="">
+            <div class="unit-4">
+              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-idea"></span></div>
+              <div>
+                <h3>Insurance Consulting</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4">
+              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-smartphone"></span></div>
+              <div>
+                <h3>Financial Investment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4">
+              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-head"></span></div>
+              <div>
+                <h3>Financial Management</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section testimonial-wrap" id="testimonials-section" data-aos="fade">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">Testimonials</h2>
+          </div>
+        </div>
+      </div>
+      <div class="slide-one-item home-slider owl-carousel">
+          <div>
+            <div class="testimonial">
+
+              <blockquote class="mb-5">
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
+
+              <figure class="mb-4 d-flex align-items-center justify-content-center">
+                <div><img src="images/person_3.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
+                <p>John Smith</p>
+              </figure>
+            </div>
+          </div>
+          <div>
+            <div class="testimonial">
+
+              <blockquote class="mb-5">
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
+              <figure class="mb-4 d-flex align-items-center justify-content-center">
+                <div><img src="images/person_2.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
+                <p>Christine Aguilar</p>
+              </figure>
+
+            </div>
+          </div>
+
+          <div>
+            <div class="testimonial">
+
+              <blockquote class="mb-5">
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
+              <figure class="mb-4 d-flex align-items-center justify-content-center">
+                <div><img src="images/person_4.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
+                <p>Robert Spears</p>
+              </figure>
+
+
+            </div>
+          </div>
+
+          <div>
+            <div class="testimonial">
+
+              <blockquote class="mb-5">
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
+              <figure class="mb-4 d-flex align-items-center justify-content-center">
+                <div><img src="images/person_4.jpg" alt="Image" class="w-50 img-fluid mb-3"></div>
+                <p>Bruce Rogers</p>
+              </figure>
+
+            </div>
+          </div>
+
+        </div>
+    </section>
+
+    <section class="site-section bg-light" id="pricing-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade-up">
+            <h2 class="section-title mb-3">Pricing</h2>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="">
+            <div class="pricing">
+              <h3 class="text-center text-black">Basic</h3>
+              <div class="price text-center mb-4 ">
+                <span><span>$47</span> / year</span>
+              </div>
+              <ul class="list-unstyled ul-check success mb-5">
+
+                <li>Officia quaerat eaque neque</li>
+                <li>Possimus aut consequuntur incidunt</li>
+                <li class="remove">Lorem ipsum dolor sit amet</li>
+                <li class="remove">Consectetur adipisicing elit</li>
+                <li class="remove">Dolorum esse odio quas architecto sint</li>
+              </ul>
+              <p class="text-center">
+                <a href="#" class="btn btn-secondary">Buy Now</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing">
+              <h3 class="text-center text-black">Premium</h3>
+              <div class="price text-center mb-4 ">
+                <span><span>$200</span> / year</span>
+              </div>
+              <ul class="list-unstyled ul-check success mb-5">
+
+                <li>Officia quaerat eaque neque</li>
+                <li>Possimus aut consequuntur incidunt</li>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipisicing elit</li>
+                <li class="remove">Dolorum esse odio quas architecto sint</li>
+              </ul>
+              <p class="text-center">
+                <a href="#" class="btn btn-primary">Buy Now</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4 mb-lg-0 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing">
+              <h3 class="text-center text-black">Professional</h3>
+              <div class="price text-center mb-4 ">
+                <span><span>$750</span> / year</span>
+              </div>
+              <ul class="list-unstyled ul-check success mb-5">
+
+                <li>Officia quaerat eaque neque</li>
+                <li>Possimus aut consequuntur incidunt</li>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipisicing elit</li>
+                <li>Dolorum esse odio quas architecto sint</li>
+              </ul>
+              <p class="text-center">
+                <a href="#" class="btn btn-secondary">Buy Now</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row site-section" id="faq-section">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title">Frequently Ask Questions</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-black h4 mb-4">Can I accept both Paypal and Stripe?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+            </div>
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="text-black h4 mb-4">What available is refund period?</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+            </div>
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-black h4 mb-4">Can I accept both Paypal and Stripe?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+            </div>
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="text-black h4 mb-4">What available is refund period?</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="text-black h4 mb-4">Where are you from?</h3>
+              <p>Voluptatum nobis obcaecati perferendis dolor totam unde dolores quod maxime corporis officia et. Distinctio assumenda minima maiores.</p>
+            </div>
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="text-black h4 mb-4">What is your opening time?</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+            </div>
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-black h4 mb-4">Can I accept both Paypal and Stripe?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+            </div>
+
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="text-black h4 mb-4">What available is refund period?</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam assumenda eum blanditiis perferendis.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section" id="about-section">
+      <div class="container">
+        <div class="row mb-5">
+
+          <div class="col-lg-5 ml-auto mb-5 order-1 order-lg-2" data-aos="fade" data-aos="fade-up" data-aos-delay="">
+            <img src="images/about_1.jpg" alt="Image" class="img-fluid rounded">
+          </div>
+          <div class="col-lg-6 order-2 order-lg-1" data-aos="fade">
+
+            <div class="row">
+
+
+
+              <div class="col-md-12 mb-md-5 mb-0 col-lg-6" data-aos="fade-up" data-aos-delay="">
+                <div class="unit-4">
+                  <div class="unit-4-icon mr-4 mb-3"><span class="text-primary flaticon-head"></span></div>
+                  <div>
+                    <h3>Web &amp; Mobile Specialties</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis consect.</p>
+                    <p class="mb-0"><a href="#">Learn More</a></p>
+                  </div>
                 </div>
-            </div>
-        </div>
-        <!-- Subscribe End -->
-
-        <!-- Footer Start -->
-        @include('templates.footer')
-        <!-- Footer End -->
-
-        <!-- Copyright Start -->
-        <div class="container-fluid copyright text-body py-4">
-            <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-6 text-center text-md-end mb-md-0">
-                        <i class="fas fa-copyright me-2"></i><a class="text-white" href="#">Your Site Name</a>, All right reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-start">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="text-white" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
-                    </div>
-                    </div>
+              </div>
+              <div class="col-md-12 mb-md-5 mb-0 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="unit-4">
+                  <div class="unit-4-icon mr-4 mb-3"><span class="text-primary flaticon-smartphone"></span></div>
+                  <div>
+                    <h3>Intuitive Thinkers</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis.</p>
+                    <p class="mb-0"><a href="#">Learn More</a></p>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+
         </div>
-        <!-- Copyright End -->
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+      </div>
+    </section>
 
 
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
 
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
+    <section class="site-section" id="blog-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title mb-3">Our Blog</h2>
+          </div>
+        </div>
 
-        <script>
-            var modal = document.getElementById("myModal");
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="">
+            <div class="h-entry">
+              <a href="single.html">
+                <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+              </a>
+              <h2 class="font-size-regular"><a href="#">Where Do You Learn HTML & CSS in 2019?</a></h2>
+              <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+              <p><a href="#">Continue Reading...</a></p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="h-entry">
+              <a href="single.html">
+                <img src="images/img_4.jpg" alt="Image" class="img-fluid">
+              </a>
+              <h2 class="font-size-regular"><a href="#">Where Do You Learn HTML & CSS in 2019?</a></h2>
+              <div class="meta mb-4">James Phelps <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+              <p><a href="#">Continue Reading...</a></p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="h-entry">
+              <a href="single.html">
+                <img src="images/img_3.jpg" alt="Image" class="img-fluid">
+              </a>
+              <h2 class="font-size-regular"><a href="#">Where Do You Learn HTML & CSS in 2019?</a></h2>
+              <div class="meta mb-4">James Phelps <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+              <p><a href="#">Continue Reading...</a></p>
+            </div>
+          </div>
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+        </div>
+      </div>
+    </section>
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-        </script>
-    </body>
+    <section class="site-section bg-light" id="contact-section" data-aos="fade">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">Contact Us</h2>
+          </div>
+        </div>
+        <div class="row mb-5">
 
+
+
+          <div class="col-md-4 text-center">
+            <p class="mb-4">
+              <span class="icon-room d-block h4 text-primary"></span>
+              <span>203 Fake St. Mountain View, San Francisco, California, USA</span>
+            </p>
+          </div>
+          <div class="col-md-4 text-center">
+            <p class="mb-4">
+              <span class="icon-phone d-block h4 text-primary"></span>
+              <a href="#">+1 232 3235 324</a>
+            </p>
+          </div>
+          <div class="col-md-4 text-center">
+            <p class="mb-0">
+              <span class="icon-mail_outline d-block h4 text-primary"></span>
+              <a href="#">youremail@domain.com</a>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-5">
+
+
+
+            <form action="#" class="p-5 bg-white">
+
+              <h2 class="h4 text-black mb-5">Contact Form</h2>
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">First Name</label>
+                  <input type="text" id="fname" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Last Name</label>
+                  <input type="text" id="lname" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Email</label>
+                  <input type="email" id="email" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Subject</label>
+                  <input type="subject" id="subject" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Message</label>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
+                </div>
+              </div>
+
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-5">
+                <h2 class="footer-heading mb-4">About Us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+              </div>
+              <div class="col-md-3 ml-auto">
+                <h2 class="footer-heading mb-4">Quick Links</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#about-section" class="smoothscroll">About Us</a></li>
+                  <li><a href="#services-section" class="smoothscroll">Services</a></li>
+                  <li><a href="#testimonials-section" class="smoothscroll">Testimonials</a></li>
+                  <li><a href="#contact-section" class="smoothscroll">Contact Us</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <h2 class="footer-heading mb-4">Follow Us</h2>
+                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+            <form action="#" method="post" class="footer-subscribe">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary text-black" type="button" id="button-addon2">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-5">
+              <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- .site-wrap -->
+
+  <script src="{{ asset('/users/js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('/users/js/jquery-ui.js') }}"></script>
+<script src="{{ asset('/users/js/popper.min.js') }}"></script>
+<script src="{{ asset('/users/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('/users/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('/users/js/jquery.countdown.min.js') }}"></script>
+<script src="{{ asset('/users/js/jquery.easing.1.3.js') }}"></script>
+<script src="{{ asset('/users/js/aos.js') }}"></script>
+<script src="{{ asset('/users/js/jquery.fancybox.min.js') }}"></script>
+<script src="{{ asset('/users/js/jquery.sticky.js') }}"></script>
+<script src="{{ asset('/users/js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('/users/js/main.js') }}"></script>
+
+
+  </body>
 </html>
