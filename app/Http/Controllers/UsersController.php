@@ -2,6 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddPertesCartesRequest;
+use App\Http\Requests\AddRenouveCarteRequest;
+use App\Http\Requests\DemandeCarteRequest;
+use App\Http\Requests\ResetPassWordRequest;
+use App\Http\Requests\updateDemandeCarteRequest;
+use App\Http\Requests\updatePertesCartesRequest;
+use App\Http\Requests\UpdateUsersRequest;
 use App\Models\Demande_carte;
 use App\Models\Demandeur;
 use App\Models\Message;
@@ -40,32 +47,10 @@ class UsersController extends Controller
             flash()->error('La demande ulterieure est supprimé');
             return back();
         }
-        return view('demandeur.update_demande',compact('users','demande'));
+        return view('users.details_demande',compact('users','demande'));
      }
 
-    public function addDemande(Request $request){
-
-
-
-        $request->validate([
-            'photo' => 'required|image:png,jpg,png',
-            'acte_naissance' => 'required|mimes:pdf',
-            'certificat_residence' => 'required|mimes:pdf',
-            'piece_pere' => 'nullable|mimes:pdf',
-            'piece_mere' => 'nullable|mimes:pdf',
-            'id' => 'required',
-        ], [
-            'photo.required' => 'La photo est obligatoire.',
-            'photo.image' => 'La photo doit être une image de type png ou jpg.',
-            'acte_naissance.required' => 'L\'acte de naissance est obligatoire.',
-            'acte_naissance.mimes' => 'L\'acte de naissance doit être un fichier de type pdf.',
-            'certificat_residence.required' => 'Le certificat de résidence est obligatoire.',
-            'certificat_residence.mimes' => 'Le certificat de résidence doit être un fichier de type pdf.',
-            'piece_pere.mimes' => 'La pièce du père doit être un fichier de type pdf.',
-            'piece_mere.mimes' => 'La pièce de la mère doit être un fichier de type pdf.',
-            'id.required' => 'L\'identifiant est obligatoire.',
-        ]);
-
+    public function addDemande(DemandeCarteRequest $request){
 
         $todayCount = Demande_carte::where('demandeur_id', $request->id)
         ->whereDate('created_at', date('Y-m-d'))
@@ -98,17 +83,9 @@ class UsersController extends Controller
         return back();
     }
 
-    public function updateDemande(Request $request){
+    public function updateDemande(updateDemandeCarteRequest $request){
 
-        $request->validate([
-           'photo'=> 'nullable|image:png,jpg,png',
-           'acte_naissance'=> 'nullable|mimes:pdf',
-           'certificat_residence'=> 'nullable|mimes:pdf',
-           'piece_pere'=> 'nullable|mimes:pdf',
-           'piece_mere'=> 'nullable|mimes:pdf',
-           'id'=> 'required|exists:demande_cartes,id',
 
-        ]);
 
         $demande_carte = Demande_carte::find( $request->id );
           if(!$demande_carte){
@@ -173,17 +150,7 @@ class UsersController extends Controller
         return view('users.renouveau.listes',compact('users','renouveauCarteAll'));
     }
 
-    public function addRenouCarte(Request $request){
-
-        $request->validate([
-            'renouveauCarte' => 'required|mimes:pdf',
-            'id' => 'required|exists:demandeurs,id',
-
-        ],[
-            'renouveauCarte.required' => 'Le fichier est requis',
-            'renouveauCarte.mimes' => 'Le fichier doit etre un pdf',
-
-        ]);
+    public function addRenouCarte(AddRenouveCarteRequest $request){
 
         $todayCount = Renouvellement_carte::where('demandeur_id', $request->id)
         ->whereDate('created_at', date('Y-m-d'))
@@ -221,7 +188,7 @@ class UsersController extends Controller
 
         $request->validate([
            'id'=> 'required',
-           'renouveauCarte'=> 'nullable|mimes:pdf',
+           'renouveauCarte'=> 're|mimes:pdf',
 
         ],[
             'renouveauCarte.mimes'=>'Le fichier doit etre de format pdf'
@@ -256,26 +223,7 @@ class UsersController extends Controller
 
 
 
-    public function addPertes(Request $request){
-
-        $request->validate([
-            'extrait_naissance' => 'required|mimes:pdf',
-            'certificat_de_perte' => 'required|mimes:pdf',
-            'ancienne_carte' => 'required|mimes:pdf',
-            'date_perte' => 'required',
-            'id'=>'required'
-
-        ],[
-           'extrait_naissance.required' => 'L extrait de naissance est requis',
-            'certificat_de_perte.required' => 'Le certificat de perte est requis',
-            'ancienne_carte.required' => 'L ancienne carte  est requis',
-            'date_perte.required' => 'La date de perte de la carte est requis',
-            'id'=>'required',
-            'extrait_naissance.mimes' => 'L extrait de naissance doit etre de type pdf',
-            'certificat_de_perte.mimes' => 'Le certificat de perte doit etre de type pdf',
-            'ancienne_carte.mimes' => 'L ancienne carte  doit etre de type pdf',
-
-        ]);
+    public function addPertes(AddPertesCartesRequest $request){
 
         $todayCount = PertesCartesUser::where('demandeur_id', $request->id)
             ->whereDate('created_at', date('Y-m-d'))
@@ -309,22 +257,7 @@ class UsersController extends Controller
         return view('users.pertes.update',compact('users','demande'));
      }
 
-     public function updatePertesCarte(Request $request){
-
-
-
-        $request->validate([
-            'extrait_naissance' => 'nullable|mimes:pdf',
-            'certificat_de_perte' => 'nullable|mimes:pdf',
-            'ancienne_carte' => 'nullable|mimes:pdf',
-            'date_perte' => 'nullable',
-            'id' => 'required',
-        ], [
-            'extrait_naissance.mimes' => 'L\'extrait de naissance doit être un fichier de type pdf.',
-            'certificat_de_perte.mimes' => 'Le certificat de perte doit être un fichier de type pdf.',
-            'ancienne_carte.mimes' => 'L\'ancienne carte doit être un fichier de type pdf.',
-            'id.required' => 'L\'identifiant est obligatoire.',
-        ]);
+     public function updatePertesCarte(updatePertesCartesRequest $request){
 
 
         $demande_carte = PertesCartesUser::find( $request->id );
@@ -368,19 +301,8 @@ class UsersController extends Controller
         return view('reset_password');
     }
 
-    public function reset_password_users_account(Request $request){
-        $request->validate([
-            'emailOrTel'=>'required',
-            'password'=>'required|min:4',
-            'password_confirm'=>'required|min:4',
-        ],[
-            'emailOrTel.required'=> 'Identifiant est requis !',
-            'password.required'=> 'Le mot de passe est requis !',
-            'password_confirm.required'=> 'La confirmation du mot de passe est requis !',
-            'password_confirm.min'=> 'Le mot de passe de confirmation minimun 4 caractère !',
-            'password.min'=> 'Le mot de passe de  minimun 4 caractère !',
+    public function reset_password_users_account(ResetPassWordRequest $request){
 
-        ]);
 
         $users = Demandeur::where('email',$request->emailOrTel)->orWhere('tel',$request->emailOrTel)->first();
         if(!$users){
@@ -463,24 +385,8 @@ public function update_account(){
 }
 
 
-public function user_update(Request $request){
-    $request->validate([
-        'nom'=>'required',
-        'prenom'=>'required',
-        'email'=>'required|email',
-        'tel'=>'required',
-        'age'=>'required',
-        'password'=>'nullable',
-        'password_confirm'=>'nullable',
-        'id'=>'required'
-    ],[
-        'nom.required'=>'Le nom est requis',
-        'prenom'=>'Le prénom est requis',
-        'email.email'=>'L email n est pas du bon format',
-        'email.required'=>'L email est requis ',
-        'tel'=>'Le numéro de téléphone est requis',
-        'age'=>'L age est resquis'
-    ]);
+public function user_update(UpdateUsersRequest $request){
+
 
     $user=Demandeur::find($request->id);
 
