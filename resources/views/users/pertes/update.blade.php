@@ -38,6 +38,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{route('vue.message')}}">Messages</a>
+        </li>
           <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="{{route('home_page.user')}}">Demande cartes</a>
           </li>
@@ -61,7 +64,7 @@
     <div class="container-fluid p-0">
 
     <div style="padding-bottom: 100px;"></div>
-     <button data-bs-toggle="modal" data-bs-target="#staticBackdrop">+Modification des informations</button>
+     <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="alert btn-info">+Modification des informations</button>
     <table class="table">
   <thead>
   <tr>
@@ -99,7 +102,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title fs-5" id="staticBackdropLabel">Demande-de-cartes</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close  btn-info" data-bs-dismiss="modal" aria-label="Close">Fermer</button>
       </div>
       <div class="modal-body">
       <form  enctype="multipart/form-data"  method="POST" action="{{route('update.Pertes.Carte')}}">

@@ -38,6 +38,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{route('vue.message')}}">Messages</a>
+        </li>
           <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="{{route('home_page.user')}}">Demande cartes</a>
           </li>
@@ -61,7 +64,7 @@
     <div class="container-fluid p-0">
 
     <div style="padding-bottom: 100px;"></div>
-     <button data-bs-toggle="modal" data-bs-target="#staticBackdrop">+Faire une demande</button>
+     <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="alert btn-info">+Faire une demande</button>
     <table class="table">
   <thead>
                          <tr>
@@ -102,7 +105,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="modal-title fs-5" id="staticBackdropLabel">Demande-de-cartes</>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-primary" data-bs-dismiss="modal" aria-label="Close">Fermer</button>
       </div>
       <div class="modal-body">
       <form  action="{{route('demande.carte.forms')}}" method="POST" enctype="multipart/form-data">
@@ -142,7 +145,6 @@
             <input type="hidden" class="form-control" id="piece_mere" name="id" value="{{$users[0]->id}}">
 
             <button type="submit" class="btn btn-primary">Valider</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </form>
       </div>
 

@@ -40,6 +40,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{route('vue.message')}}">Messages</a>
+        </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="{{route('home_page.user')}}">Demande cartes</a>
           </li>
@@ -63,7 +66,7 @@
     <div class="container-fluid p-0">
 
     <div style="padding-bottom: 100px;"></div>
-     <button data-bs-toggle="modal" data-bs-target="#staticBackdrop">+Faire une demande de renouvellement</button>
+     <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="alert btn-info">+Faire une demande de renouvellement</button>
     <table class="table">
   <thead>
   <tr>
@@ -81,7 +84,7 @@
                     <td > {{$demande->status}} </td>
                     <td>{{$demande->created_at}} </td>
                     <td > {{$demande->updated_at}} </td>
-                    <td><a class="btn btn-info" href="{{route('updateRenouveau.cartes.users',['id'=>$demande->id])}}" ><i class="bi bi-pencil"></i></></td>
+                    <td><a class="btn btn-info" href="{{route('updateRenouveau.cartes.users',['id'=>$demande->id])}}" ><i class="bi bi-pencil"></i><a/></td>
                 </tr>
             @endforeach
   </tbody>
@@ -89,8 +92,8 @@
 
 
 
-@if ($errors->any())
-						<div class="alert alert-danger">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
 							<ul>
 								@foreach ($errors->all() as $error)
 									<li>{{ $error }}</li>
@@ -99,13 +102,12 @@
 						</div>
 					@endif
 
-<!-- Modal -->
-< <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+ <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title fs-5" id="staticBackdropLabel">Demande-de-cartes</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-primary" data-bs-dismiss="modal" aria-label="Close" >Fermer</button>
       </div>
       <div class="modal-body">
       <form enctype="multipart/form-data" method="POST" action="{{route('renouveCarte.addRenouCarte')}}">
