@@ -61,7 +61,7 @@
     <div class="container-fluid p-0">
 
     <div style="padding-bottom: 100px;"></div>
-     <button data-bs-toggle="modal" data-bs-target="#staticBackdrop">+Modifier mes informations</button>
+     <button data-bs-toggle="modal" data-bs-target="#staticBackdrop">+ajouter des informations</button>
     <table class="table">
   <thead>
                          <tr>
@@ -102,7 +102,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="modal-title fs-5" id="staticBackdropLabel">Demande-de-cartes</>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">Fermer</button>
       </div>
       <div class="modal-body">
       <form action="{{route('user.update.informations')}}" method="POST">
@@ -110,71 +110,77 @@
     <div class="row g-3">
         <div class="col-md-6">
             <div class="form-floating">
-                <input type="text" class="form-control " name="nom" id="name" value="{{$users[0]->nom}}" placeholder="Entrer votre nom" required >
                 <label for="name">Nom</label>
+                <input type="text" class="form-control " name="nom" id="name" value="{{$users[0]->nom}}" placeholder="Entrer votre nom" required >    
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating">
-                <input type="text" class="form-control " id="email"  value="{{$users[0]->prenom}}" name="prenom" placeholder="Entrer votre prenom" required>
                 <label for="email">Prenom</label>
+                <input type="text" class="form-control " id="email"  value="{{$users[0]->prenom}}" name="prenom" placeholder="Entrer votre prenom" required>
+                
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="email" class="form-control " id="datetime"  value="{{$users[0]->email}}" name="email" placeholder="Votre Email"  />
                 <label for="datetime">Email</label>
+                <input type="email" class="form-control " id="datetime"  value="{{$users[0]->email}}" name="email" placeholder="Votre Email"  />       
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="text" class="form-control "  value="{{$users[0]->tel}}" id="datetime" name="tel" placeholder="Votre téléohone" required  />
                 <label for="datetime">Téléphone</label>
+                <input type="text" class="form-control "  value="{{$users[0]->tel}}" id="datetime" name="tel" placeholder="Votre téléohone" required  />
+                
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="number" class="form-control "  value="{{$users[0]->age}}" id="datetime" name="age" placeholder="Votre age" required   />
                 <label for="datetime">Age</label>
+                <input type="number" class="form-control "  value="{{$users[0]->age}}" id="datetime" name="age" placeholder="Votre age" required   />
+                
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="text" class="form-control "  value="{{$users[0]->professession}}" id="datetime" name="professession" placeholder="Profession" required   />
                 <label for="datetime">Profesession</label>
+                <input type="text" class="form-control "  value="{{$users[0]->professession}}" id="datetime" name="professession" placeholder="Profession" required   />
+               
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
+                <label for="datetime">Situation Matrimonial</label>
                 <select name="situation_matrimonial" id="">
                     <option value="{{$users[0]->situation_matrimonial}}">{{$users[0]->situation_matrimonial}}</option>
                     <option value="Celibataire">Celibataire</option>
                     <option value="Mariee">Mariee</option>
                 </select>
-                <label for="datetime">Situation Matrimonial</label>
+                
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating date" id="date3" data-target-input="nearest">
-                <input type="text" class="form-control "  value="{{$users[0]->adresse}}" id="datetime" name="adresse" placeholder="Votre adresse" required   />
                 <label for="datetime">Adrese</label>
+                <input type="text" class="form-control "  value="{{$users[0]->adresse}}" id="datetime" name="adresse" placeholder="Votre adresse" required   />
+                
             </div>
         </div>
 
         <div class="col-md-6">
+        <label for="datetime">Region</label>
+
             <div class="form-floating date" id="date3" data-target-input="nearest">
                 <input type="text" class="form-control "  value="{{$users[0]->adresse}}" id="datetime" name="region" placeholder="Votre Region" required  />
-                <label for="datetime">Region</label>
             </div>
-        </div>
+        </div></br>
 
         <input type="hidden" class="form-control "  value="{{$users[0]->id}}" id="datetime" name="id"   />
 
 
         <div class="col-12">
-            <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button><br>
 
         </div>
 
