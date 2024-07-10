@@ -49,7 +49,7 @@
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="/" class="h2 mb-0">Nitro<span class="text-primary">.</span> </a></h1>
+            <h1 class="mb-0 site-logo"><a href="/" class="h2 mb-0">RenouvCarte<span class="text-primary">.</span> </a></h1>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -85,9 +85,13 @@
 
           <div class="col-md-8 mt-lg-5 text-center">
             <h1 class="text-uppercase" data-aos="fade-up"><span style="color:green">Un peuple </span><span style="color:yellow;">un but</span>  <span style="color:red;">une foi </span></h1>
-            <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio soluta eius error.</p>
+            <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">
+
+Bienvenue au Sénégal, un pays vibrant situé à l'ouest de l'Afrique, connu pour sa stabilité politique, sa diversité culturelle et ses paysages magnifiques. La capitale, Dakar, est le centre névralgique du pays, offrant une riche scène culturelle et économique. Le français est la langue officielle, et l'islam est la religion majoritaire. 
+
+Le Sénégal est un pays en pleine croissance, avec une économie diversifiée et une tradition de démocratie bien établie. Explorez notre site pour découvrir comment nous facilitons vos démarches administratives, en simplifiant la demande de carte d'identité en ligne.</p>
             <div data-aos="fade-up" data-aos-delay="100">
-              <a href="#contact-section" class="btn smoothscroll btn-primary mr-2 mb-2">Get In Touch</a>
+              <a href="#contact-section" class="btn smoothscroll btn-primary mr-2 mb-2">Contactez-nous</a>
             </div>
           </div>
 
@@ -106,7 +110,7 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center" data-aos="fade">
-            <h2 class="section-title mb-3">About Us</h2>
+            <h2 class="section-title mb-3">A propos de nous</h2>
           </div>
         </div>
         <div class="row">
@@ -117,8 +121,14 @@
           </div>
           <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
             <div class="mb-4">
-              <h3 class="h3 mb-4 text-black">For the next great business</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo tempora cumque eligendi in nostrum labore omnis quaerat.</p>
+              <h3 class="h3 mb-4 text-black">Pour vos demandes de carte d'identité</h3>
+              <p>
+
+Bienvenue sur notre site dédié à simplifier la demande de carte d'identité au Sénégal. Notre objectif est de moderniser et d'accélérer le processus administratif en vous permettant de soumettre votre demande en ligne, de télécharger les documents nécessaires et de suivre l'état de votre demande.
+
+Nous visons à réduire les temps d'attente et à offrir une expérience utilisateur fluide et sécurisée. Notre plateforme intuitive vous guide à chaque étape, garantissant un service rapide et efficace.
+
+Merci de nous faire confiance pour faciliter vos démarches administratives.<br> notre plateforme vous permet de:</p>
 
             </div>
 
@@ -126,10 +136,11 @@
 
             <div class="mb-4">
               <ul class="list-unstyled ul-check success">
-                <li>Officia quaerat eaque neque</li>
-                <li>Possimus aut consequuntur incidunt</li>
-                <li>Lorem ipsum dolor sit amet</li>
-                <li>Consectetur adipisicing elit</li>
+                <li>demander une carte d'identité</li>
+                <li>Renouveller une carte</li>
+                <li>Signaler une perte</li>
+                <li>Prendre rendez-vous</li>
+               
               </ul>
 
             </div>
@@ -461,7 +472,7 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center" data-aos="fade">
-            <h2 class="section-title mb-3">Our Blog</h2>
+            <h2 class="section-title mb-3">Notre Blog</h2>
           </div>
         </div>
 
@@ -471,10 +482,12 @@
               <a href="single.html">
                 <img src="images/img_1.jpg" alt="Image" class="img-fluid">
               </a>
-              <h2 class="font-size-regular"><a href="#">Where Do You Learn HTML & CSS in 2019?</a></h2>
-              <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-              <p><a href="#">Continue Reading...</a></p>
+
+              <h2 class="font-size-regular"><a href="#">Où Aller pour Demander une Carte d'Identité</a></h2>
+              
+              <p>
+                .</p>
+             
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
@@ -511,7 +524,7 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center">
-            <h2 class="section-title mb-3">Contact Us</h2>
+            <h2 class="section-title mb-3">Contactez-nous</h2>
           </div>
         </div>
         <div class="row mb-5">
@@ -521,19 +534,19 @@
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-room d-block h4 text-primary"></span>
-              <span>203 Fake St. Mountain View, San Francisco, California, USA</span>
+              <span> Rue Felix Faure, 77, Dakar</span>
             </p>
           </div>
           <div class="col-md-4 text-center">
             <p class="mb-4">
               <span class="icon-phone d-block h4 text-primary"></span>
-              <a href="#">+1 232 3235 324</a>
+              <a href="#"> 33 821 19 25</a>
             </p>
           </div>
           <div class="col-md-4 text-center">
             <p class="mb-0">
               <span class="icon-mail_outline d-block h4 text-primary"></span>
-              <a href="#">youremail@domain.com</a>
+              <a href="#">Contact@interieur.gouv.com</a>
             </p>
           </div>
         </div>
@@ -544,15 +557,15 @@
 
             <form action="#" class="p-5 bg-white">
 
-              <h2 class="h4 text-black mb-5">Contact Form</h2>
+              <h2 class="h4 text-black mb-5">Ecriver-nous</h2>
 
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">First Name</label>
+                  <label class="text-black" for="fname">Prénom</label>
                   <input type="text" id="fname" class="form-control">
                 </div>
                 <div class="col-md-6">
-                  <label class="text-black" for="lname">Last Name</label>
+                  <label class="text-black" for="lname">Nom</label>
                   <input type="text" id="lname" class="form-control">
                 </div>
               </div>
@@ -568,7 +581,7 @@
               <div class="row form-group">
 
                 <div class="col-md-12">
-                  <label class="text-black" for="subject">Subject</label>
+                  <label class="text-black" for="subject">Sujet</label>
                   <input type="subject" id="subject" class="form-control">
                 </div>
               </div>
@@ -576,13 +589,13 @@
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="message">Message</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Écrivez vos notes ou questions ici..."></textarea>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
+                  <input type="submit" value="Envoyer" class="btn btn-primary btn-md text-white">
                 </div>
               </div>
 
@@ -613,26 +626,10 @@
                   <li><a href="#contact-section" class="smoothscroll">Contact Us</a></li>
                 </ul>
               </div>
-              <div class="col-md-3">
-                <h2 class="footer-heading mb-4">Follow Us</h2>
-                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-              </div>
+             
             </div>
           </div>
-          <div class="col-md-3">
-            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-            <form action="#" method="post" class="footer-subscribe">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary text-black" type="button" id="button-addon2">Send</button>
-                </div>
-              </div>
-            </form>
-          </div>
+         
         </div>
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">

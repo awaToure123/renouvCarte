@@ -39,8 +39,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
         <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="{{route('vue.message')}}">Messages</a>
-        </li>
+          <a class="nav-link js-scroll-trigger" href="{{route('vue.message')}}">Messages</a>
+          </li>
           <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="{{route('home_page.user')}}">Demande cartes</a>
           </li>
@@ -64,28 +64,26 @@
     <div class="container-fluid p-0">
 
     <div style="padding-bottom: 100px;"></div>
-     <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="alert btn-info">+Faire une demande</button>
+     <h5 >Message</h5>
     <table class="table">
   <thead>
   <tr>
                 <th scope="col">Numéro</th>
-                <th scope="col">Status</th>
+                <th scope="col">Messages</th>
                 <th scope="col">Date</th>
-                <th scope="col">Mise-à-jour</th>
-                <th scope="col">Details</th>
+                <th scope="col">Supprimer</th>
             </tr>
   </thead>
   <tbody>
-  @foreach($demandeAll as $demande)
-
+            @foreach($messages as $demande)
                 <tr wire:key='{{$demande->id}}'>
-                    <th scope="row"> {{$demande->id}} </th>
-                    <td colspan="2"> {{$demande->status}} </td>
-                    <td>{{$demande->created_at}} </td>
-                    <td><a href="{{route('users.edit_pertes',['id'=>$demande->id])}}" class="btn btn-info" ><i class="bi bi-pencil"></i></a></td>
+                <th scope="row"> {{$demande->id}} </th>
+                    <th > {{$demande->message}} </th>
+                    <td > {{$demande->created_at}} </td>
+                    <td><a href="{{route('delete.users.Message',['id'=>$demande->id])}}" class="btn btn-info" ><i class="bi bi-pencil"></i></but></td>
                 </tr>
             @endforeach
-  </tbody>
+        </tbody>
 </table>
 
 

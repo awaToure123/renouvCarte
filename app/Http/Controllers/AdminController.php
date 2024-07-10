@@ -416,6 +416,16 @@ class AdminController extends Controller
     public function login_admin(){
 
 
+/*$user =new User();   
+        $user->email='admin@example.com';
+
+        $user->nom='admin';
+        $user->prenom='admin';
+        $user->tel='';
+        $user->role='';
+            $user->profile= '';
+            $user->password=Hash::make('admin');    
+        $user->save();*/
 
         return view('Admin.login');
     }

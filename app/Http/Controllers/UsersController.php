@@ -352,7 +352,7 @@ class UsersController extends Controller
         $messages = Message::where('demandeur_id', $users[0]->id)->get();
 
 
-        return view('demandeur.messages',compact('users','messages'));
+        return view('users.messages',compact('users','messages'));
 }
 
 

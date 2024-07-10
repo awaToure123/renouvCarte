@@ -38,6 +38,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="{{route('vue.message')}}">Messages</a>
+        </li>
           <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="{{route('home_page.user')}}">Demande cartes</a>
           </li>
@@ -61,7 +64,11 @@
     <div class="container-fluid p-0">
 
     <div style="padding-bottom: 100px;"></div>
+<<<<<<< HEAD
      <button data-bs-toggle="modal" data-bs-target="#staticBackdrop">+ajouter des informations</button>
+=======
+     <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="alert btn-success">+Modifier mes informations</button>
+>>>>>>> 53c5a6d8973d8c5a0833d09e30e7357df3eef2f9
     <table class="table">
   <thead>
                          <tr>
@@ -102,7 +109,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="modal-title fs-5" id="staticBackdropLabel">Demande-de-cartes</>
+<<<<<<< HEAD
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">Fermer</button>
+=======
+        <button type="button" class="btn-close btn-info" data-bs-dismiss="modal" aria-label="Close">Fermer</button>
+>>>>>>> 53c5a6d8973d8c5a0833d09e30e7357df3eef2f9
       </div>
       <div class="modal-body">
       <form action="{{route('user.update.informations')}}" method="POST">
@@ -180,7 +191,11 @@
 
 
         <div class="col-12">
+<<<<<<< HEAD
             <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button><br>
+=======
+            <button class="btn btn-primary text-white w-100 py-3" type="submit">Soumettre</button>
+>>>>>>> 53c5a6d8973d8c5a0833d09e30e7357df3eef2f9
 
         </div>
 
