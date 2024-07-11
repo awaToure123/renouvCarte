@@ -216,84 +216,12 @@
                           <th>
                             Date
                           </th>
-                          <th>
-                            Details
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-
-                         @foreach($demandeAll as $demande)
-                         @if($demande->status =='En-cours')
-
-                        <tr>
-                          <td>
-                           {{$demande->id}}
-                          </td>
-                          <td>
-                          {{optional($demande->demandeur)->nom}}
-                          </td>
-                          <td>
-
-                            {{optional($demande->demandeur)->prenom}}
-
-                          </td>
-                          <td>
-                          {{optional($demande->demandeur)->tel}}
-
-                          </td>
-                          <td>
-                          {{$demande->created_at}}
-
-                          </td>
-                          <td>
-                          <a href="{{route('details.renouve.carte',['id'=>$demande->id])}}" class="btn btn-info"><i class="bi bi-eye"></i></a>
-
-                          </td>
-                        </tr>
-                       @endif
-                        @endforeach
-<!-- #region -->
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Listes des demandes de renouvellement de carte valider</h4>
-                  <p class="card-description">
-
-                  </p>
-                  <div class="table-responsive pt-3">
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th>
-                           Numéro
-                          </th>
-                          <th>
-                           Nom
-                          </th>
-                          <th>
-                           Prenom
-                          </th>
-                          <th>
-                            Tel
-                          </th>
-                          <th>
-                            Date
-                          </th>
 
                         </tr>
                       </thead>
                       <tbody>
 
-                         @foreach($demandeAll as $demande)
-                         @if($demande->status !='En-cours')
+
 
                         <tr>
                           <td>
@@ -317,15 +245,14 @@
                           </td>
 
                         </tr>
-                       @endif
-                        @endforeach
-<!-- #region -->
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
+
+
 
 
           </div>

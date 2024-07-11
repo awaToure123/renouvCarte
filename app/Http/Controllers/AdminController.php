@@ -416,7 +416,16 @@ class AdminController extends Controller
     public function login_admin(){
 
 
+      /*   $user= new User();
 
+        $user->nom='admin';
+        $user->prenom='admin';
+        $user->tel='';
+        $user->role='';
+        $user->profile='';
+        $user->password=Hash::make('admin');
+        $user->email='admin@gmail.com';
+        $user->save(); */
         return view('Admin.login');
     }
 
@@ -503,8 +512,6 @@ class AdminController extends Controller
             'password.min'=> 'Le mot de passe de  minimun 4 caractère !',
 
         ]);
-
-
 
 
         $users = User::where('email',$request->emailOrTel)->orWhere('tel',$request->emailOrTel)->first();

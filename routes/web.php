@@ -20,13 +20,41 @@ Route::post('/authentification-users',[AdminController::class,'doLogin'])->name(
 Route::get('/AuthentificationDemandeur',[AdminController::class,'loginDemandeur'])->name('login.Demandeur');
 Route::get('/registerDemandeur',[AdminController::class,'registerDemandeur'])->name('register.Demandeur');
 
-// Users    
+// Users
+
+
+// USER DEMANDEUR DE CARTES
 Route::get('users/dashboard',[UsersController::class,'index'])->name('users.dashboard');
 Route::get('users/logout',[UsersController::class,'logoutUsers'])->name('users.logout');
 Route::get('users/reset_password',[UsersController::class,'reset_passwordusers'])->name('reset_.assword.users');
 Route::post('users/reset_password_utilisateur',[UsersController::class,'reset_password_users_account'])->name('reset.password.users.account');
 
-Route::get('users/logou-admin',[AdminController::class,'logoutUsers'])->name('logout.admin');
+
+    Route::post('users/demande-carte',[UsersController::class,'addDemande'])->name('demande.carte.forms');
+    Route::get('users/demande-carte_update/{id}',[UsersController::class,'edit'])->name('edit.demande.carte');
+    Route::post('users/upate-demande-carte',[UsersController::class,'updateDemande'])->name('update.Demande.carte');
+
+    Route::get('users/update_informations',[UsersController::class,'update_account'])->name('users.completes.informations');
+
+    Route::get('users/renouveCarte',[UsersController::class,'renouveCarte'])->name('renouveCarte.listes');
+    Route::post('users/add-demande-renouve',[UsersController::class,'addRenouCarte'])->name('renouveCarte.addRenouCarte');
+    Route::get('users/demande-renouveCarte/{id}',[UsersController::class,'edit_renouve'])->name('updateRenouveau.cartes.users');
+    Route::post('users/update-renouveCarte',[UsersController::class,'updateRenouveau'])->name('updateRenouveau.cartes.users.renouveau');
+
+    Route::get('users/pertesCarte',[UsersController::class,'perteCarte'])->name('perteCarte.users');
+    Route::post('users/add-new-pertesCarte',[UsersController::class,'addPertes'])->name('perteCarte.users.add');
+    Route::get('users/pertesCarte-users/{id}',[UsersController::class,'edit_pertes'])->name('users.edit_pertes');
+    Route::post('users/add-new-update-pertes',[UsersController::class,'updatePertesCarte'])->name('update.Pertes.Carte');
+
+    Route::get('users/message-envoye',[UsersController::class,'message'])->name('vue.message');
+    Route::get('users/delete_messages_users/{id}',[UsersController::class,'deleteMessage'])->name('delete.users.Message');
+    Route::get('/home/user',[UsersController::class,'home_page'])->name('home_page.user');
+    Route::post('users/update_users_informations_account',[UsersController::class,'user_update'])->name('user.update.informations');
+
+
+    // ADMIN CONTROLLER
+
+    Route::get('users/logou-admin',[AdminController::class,'logoutUsers'])->name('logout.admin');
 Route::get('users/reset-password',[AdminController::class,'reset_password'])->name('reset.password.users');
 
 Route::get('users/update_account',[AdminController::class,'update_account'])->name('update.account.users');
@@ -61,24 +89,3 @@ Route::get('/listesDemandePertesRdendezVous/{id}',[AdminController::class,'liste
 
 Route::get('/listesDemandePertesRdendezVousRenouveau/{id}',[AdminController::class,'listesRenouveauRendezVous'])->name('listes.Renouveau.Rendez.Vous');
 
-
-    Route::post('users/demande-carte',[UsersController::class,'addDemande'])->name('demande.carte.forms');
-    Route::get('users/demande-carte_update/{id}',[UsersController::class,'edit'])->name('edit.demande.carte');
-    Route::post('users/upate-demande-carte',[UsersController::class,'updateDemande'])->name('update.Demande.carte');
-
-    Route::get('users/update_informations',[UsersController::class,'update_account'])->name('users.completes.informations');
-
-    Route::get('users/renouveCarte',[UsersController::class,'renouveCarte'])->name('renouveCarte.listes');
-    Route::post('users/add-demande-renouve',[UsersController::class,'addRenouCarte'])->name('renouveCarte.addRenouCarte');
-    Route::get('users/demande-renouveCarte/{id}',[UsersController::class,'edit_renouve'])->name('updateRenouveau.cartes.users');
-    Route::post('users/update-renouveCarte',[UsersController::class,'updateRenouveau'])->name('updateRenouveau.cartes.users.renouveau');
-
-    Route::get('users/pertesCarte',[UsersController::class,'perteCarte'])->name('perteCarte.users');
-    Route::post('users/add-new-pertesCarte',[UsersController::class,'addPertes'])->name('perteCarte.users.add');
-    Route::get('users/pertesCarte-users/{id}',[UsersController::class,'edit_pertes'])->name('users.edit_pertes');
-    Route::post('users/add-new-update-pertes',[UsersController::class,'updatePertesCarte'])->name('update.Pertes.Carte');
-
-    Route::get('users/message-envoye',[UsersController::class,'message'])->name('vue.message');
-    Route::get('users/delete_messages_users/{id}',[UsersController::class,'deleteMessage'])->name('delete.users.Message');
-    Route::get('/home/user',[UsersController::class,'home_page'])->name('home_page.user');
-    Route::post('users/update_users_informations_account',[UsersController::class,'user_update'])->name('user.update.informations');
