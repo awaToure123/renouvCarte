@@ -71,7 +71,7 @@
                 <th scope="col">Numéro</th>
                 <th scope="col">Messages</th>
                 <th scope="col">Date</th>
-                <th scope="col">Supprimer</th>
+                <th scope="col">Vue 🆗</th>
             </tr>
   </thead>
   <tbody>
@@ -80,7 +80,7 @@
                 <th scope="row"> {{$demande->id}} </th>
                     <th > {{$demande->message}} </th>
                     <td > {{$demande->created_at}} </td>
-                    <td><a href="{{route('delete.users.Message',['id'=>$demande->id])}}" class="btn btn-info" ><i class="bi bi-pencil"></i></but></td>
+                    <td><a href="{{route('delete.users.Message',['id'=>$demande->id])}}" class="btn btn-info" ><i class="bi bi-trash"></i></td>
                 </tr>
             @endforeach
         </tbody>

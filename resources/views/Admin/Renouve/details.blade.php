@@ -224,7 +224,7 @@
                           </td>
                           <td>
 
-                          <a href="{{ Storage::url($demande->ancienne_carte) }}" target="_blank">Voir Photo</a>
+                          <a href="{{ Storage::url($demande->ancienne_carte) }}" target="_blank" class="btn btn-danger"><i class="bi bi-file-pdf-fill"></i></a>
 
                           </td>
                           <td>
