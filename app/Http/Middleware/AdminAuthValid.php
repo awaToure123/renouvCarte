@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
-
-class UsersAuthMiddelWare
+use Illuminate\Support\Facades\Auth;
+class AdminAuthValid
 {
     /**
      * Handle an incoming request.
@@ -16,9 +15,12 @@ class UsersAuthMiddelWare
      */
     public function handle(Request $request, Closure $next): Response
     {
+
         if(!Auth::check()){
-            return redirect()->route("login_admin.admin");
+
+            abort(403);
         }
+
         return $next($request);
     }
 }

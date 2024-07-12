@@ -26,13 +26,8 @@ class UsersController extends Controller
 
 
         $users=session()->get('users');
-        $auth=session()->get('auth');
 
-        if($auth ==null || $auth !=true){
-           flash()->error('Veuillez vous authentifier');
-           return redirect()->route('home');
 
-        }
         $demandeAll=Demande_carte::where('demandeur_id', $users[0]->id)->get();
         return view('users.home',compact('users','demandeAll'));
     }
@@ -141,13 +136,6 @@ class UsersController extends Controller
 
 
         $users=session()->get('users');
-        $auth=session()->get('auth');
-
-        if($auth ==null || $auth !=true){
-           flash()->error('Veuillez vous authentifier');
-           return redirect()->route('home');
-
-        }
 
         $renouveauCarteAll = Renouvellement_carte::where('demandeur_id', $users[0]->id)->get();
 

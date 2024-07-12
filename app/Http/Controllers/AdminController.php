@@ -21,12 +21,7 @@ class AdminController extends Controller
     //
 
     public function home(){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $noumbreDemande=Demande_carte::where('status','En-cours')->count();
         $noumbreRenouve=Renouvellement_carte::where('status','En-cours')->count();
         $noumbrePertes=PertesCartesUser::where('status','En-cours')->count();
@@ -44,12 +39,7 @@ class AdminController extends Controller
     }
 
     public function update_account(){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         return view("Admin.update");
     }
 
@@ -57,12 +47,7 @@ class AdminController extends Controller
 
     public function message(Request $request){
 
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $request->validate([
             "message"=> "required|min:2",
             'id'=>'required|exists:demandeurs,id'
@@ -79,12 +64,7 @@ class AdminController extends Controller
 
 
     public function listeDemande(){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demandeAll=Demande_carte::paginate(10);
         return view('Admin.Demande.listes',compact('demandeAll'));
     }
@@ -104,12 +84,7 @@ class AdminController extends Controller
 
 
     public function listeDemandeRendezVous($id){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demande=Demande_carte::find($id);
         if(! $demande){
             toastr()->error('Erreur dans le formulaire ');
@@ -120,36 +95,21 @@ class AdminController extends Controller
 
     // Partie des traitement de renouvellement de carte
     public function listesRenouveau(){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
-
-            return redirect()->route("login_admin.admin");
-
-        }
+       
         $demandeAll=Renouvellement_carte::paginate(10);
 
         return view('Admin.Renouve.listes',compact('demandeAll'));
     }
 
     public function listesRenouveauRendezVous($id){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demande=Renouvellement_carte::find($id);
 
         return view('Admin.Renouve.rendeVous',compact('demande'));
     }
 
     public function detailsRenouveCarte($id){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demande=Renouvellement_carte::find($id);
         if(!$demande){
             toastr()->error('Demande inexistante ou supprimer !');
@@ -160,12 +120,7 @@ class AdminController extends Controller
     }
 
     public function valider_renouve_carte($id){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demande=Renouvellement_carte::find($id);
         if(!$demande){
             toastr()->error('Demande n est plus d actualité ');
@@ -181,12 +136,7 @@ class AdminController extends Controller
     }
 
     public function valider_perte_carte($id){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demande=PertesCartesUser::find($id);
         if(!$demande){
             toastr()->error('Demande n est plus d actualité ');
@@ -204,12 +154,7 @@ class AdminController extends Controller
     // Partie des traitement de demande de carte
 
     public function detailsDemande($id){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demande=Demande_carte::find($id);
         if(!$demande){
             toastr()->error('Demande inexistante ou supprimer !');
@@ -220,12 +165,7 @@ class AdminController extends Controller
     }
 
     public function detailsPerteCarte($id){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demande=PertesCartesUser::find($id);
         if(!$demande){
             toastr()->error('Demande inexistante ou supprimer !');
@@ -236,12 +176,7 @@ class AdminController extends Controller
     }
 
     public function valider_demande_carte($id){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demande=Demande_carte::find($id);
         if(!$demande){
             toastr()->error('Demande n est plus d actualité ');
@@ -255,12 +190,7 @@ class AdminController extends Controller
 
 
     public function listesUsers(){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $usersAll=User::paginate(5);
         return view('Admin.users',[
             'usersAll'=>$usersAll
@@ -268,12 +198,7 @@ class AdminController extends Controller
     }
     //
     public function listesPertesCarteRendezVous($id){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demande=PertesCartesUser::find($id);
         if(!$demande){
             toastr()->error('Veuillez rénitialiser la page');
@@ -284,24 +209,14 @@ class AdminController extends Controller
     }
 
     public function listesPertesCarte(){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demandeAll=PertesCartesUser::paginate(10);
 
         return view('Admin.Pertes.listes',compact('demandeAll'));
     }
 
     public function detailsPertesCarte($id){
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         $demande=PertesCartesUser::find($id);
         if(!$demande){
             toastr()->error('Demande inexistante ou supprimer !');
@@ -370,12 +285,7 @@ class AdminController extends Controller
 
     public function addAccount(UsersRequest $usersRequest){
 
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
         if($usersRequest->password != $usersRequest->password_confirm){
             flash()->error('Les mots de passes ne doivent pas etre différents ');
             return back();
@@ -457,12 +367,7 @@ class AdminController extends Controller
 
     public function updateAccountUsers(Request $usersRequest){
 
-        if(!Auth::check()){
-            toastr()->error('Veuilez vous connecté');
 
-            return redirect()->route("login_admin.admin");
-
-        }
 
         $usersRequest->validate([
             'nom'=>'required',
