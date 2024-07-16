@@ -29,7 +29,7 @@ class UsersController extends Controller
 
 
         $demandeAll=Demande_carte::where('demandeur_id', $users[0]->id)->get();
-        return view('users.home',compact('users','demandeAll'));
+        return view('user.home',compact('users','demandeAll'));
     }
 
 

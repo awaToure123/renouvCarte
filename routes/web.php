@@ -13,7 +13,7 @@ use App\Http\Middleware\UsersAuthMiddelWare;
 
 Route::get('/',[AdminController::class, 'index'])->name('home');
 Route::post('/loginDemande',[AdminController::class,'login'])->name('login.users');
-Route::get('/login-users',[AdminController::class,'login_admin'])->name('login_admin.admin');
+Route::get('/login-admin',[AdminController::class,'login_admin'])->name('login_admin.admin');
 Route::post('/authentification-users',[AdminController::class,'doLogin'])->name('login_admin.admin.doLogin');
 
 

@@ -192,6 +192,7 @@
                 <div class="card-body">
                   <h4 class="card-title">Listes des demandes</h4>
                   <p class="card-description">
+                  <a href="" class="btn btn-info"><i class="bi bi-printer-fill"></i></a>
 
                   </p>
                   <div class="table-responsive pt-3">
@@ -261,7 +262,6 @@
                 <div class="card-body">
                   <h4 class="card-title">Listes des demandes valider</h4>
                   <p class="card-description">
-
                   </p>
                   <div class="table-responsive pt-3">
                     <table class="table table-bordered">

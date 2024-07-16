@@ -18,7 +18,8 @@ class AdminAuthValid
 
         if(!Auth::check()){
 
-            abort(403);
+          flash()->error("Veuillez vous connecté ");
+           redirect()->route("login_admin.admin");
         }
 
         return $next($request);
