@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\listeDemandeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\contactController;
+use App\Http\Controllers\ImpresionController;
+use App\Http\Controllers\PrintController;
 use App\Http\Controllers\serviceController;
 use App\Http\Controllers\UsersController;
 use App\Http\Middleware\DemandeursAuthMiddelWare;
@@ -15,6 +17,8 @@ Route::get('/',[AdminController::class, 'index'])->name('home');
 Route::post('/loginDemande',[AdminController::class,'login'])->name('login.users');
 Route::get('/login-admin',[AdminController::class,'login_admin'])->name('login_admin.admin');
 Route::post('/authentification-users',[AdminController::class,'doLogin'])->name('login_admin.admin.doLogin');
+
+
 
 
 Route::get('/AuthentificationDemandeur',[AdminController::class,'loginDemandeur'])->name('login.Demandeur');
@@ -55,6 +59,11 @@ Route::post('/add-rendezVousDemande',[AdminController::class,'prise_rendezVous']
 Route::get('/listesDemandePertesRdendezVous/{id}',[AdminController::class,'listesPertesCarteRendezVous'])->name('listesPertes.CarteRendez.Vous');
 
 Route::get('/listesDemandePertesRdendezVousRenouveau/{id}',[AdminController::class,'listesRenouveauRendezVous'])->name('listes.Renouveau.Rendez.Vous');
+
+Route::get('/printListesDemandeCartes',[PrintController::class,'print_listesDemandeCartes'])->name('print.listes.demande');
+Route::get('/printListesRenouveCarte',[PrintController::class,'print_listesRenouveCartes'])->name('print.listes.renouve');
+
+Route::get('/printListesPertesCartes',[PrintController::class,'print_listesPertesCartes'])->name('print.listes.pertes');
 
 
 });
