@@ -36,11 +36,11 @@
 <tbody>
 
             <tr wire:key='{{$demande->id}}'>
-                <th scope="row"> <a href="{{Storage::url($demande->acte_naissance)}}" target="_blank">Voir</a> </th>
-                <th > <a href="{{Storage::url($demande->photo)}}" target="_blank">Voir</a> </th>
-                <th > <a href="{{Storage::url($demande->certificat_residence)}}" target="_blank">Voir</a> </th>
-                <th > <a href="{{Storage::url($demande->piece_pere)}}" target="_blank">Voir</a> </th>
-                <th > <a href="{{Storage::url($demande->piece_mere)}}" target="_blank">Voir</a> </th>
+                <th scope="row"> <a href="{{Storage::url($demande->acte_naissance)}}" class="btn btn-info" target="_blank"><i class="bi bi-eye-fill"></i></a> </th>
+                <th > <a href="{{Storage::url($demande->photo)}}" class="btn btn-info" target="_blank"><i class="bi bi-eye-fill"></i></a> </th>
+                <th > <a href="{{Storage::url($demande->certificat_residence)}}" class="btn btn-info" target="_blank"><i class="bi bi-eye-fill"></i></a> </th>
+                <th > <a href="{{Storage::url($demande->piece_pere)}}" class="btn btn-info" target="_blank"><i class="bi bi-eye-fill"></i></a> </th>
+                <th > <a href="{{Storage::url($demande->piece_mere)}}" class="btn btn-info" target="_blank"><i class="bi bi-eye-fill"></i></a> </th>
 
             </tr>
 </tbody>

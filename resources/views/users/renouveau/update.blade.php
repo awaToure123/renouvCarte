@@ -35,7 +35,7 @@
 </thead>
 <tbody>
 <tr wire:key='{{$demande->id}}'>
-<th > <a href="{{Storage::url($demande->ancienne_carte)}}" target="_blank">Voir</a> </th>
+<th > <a href="{{Storage::url($demande->ancienne_carte)}}" target="_blank" class="btn btn-info"><i class="bi bi-eye-fill"></i></a> </th>
 <td > {{$demande->status}} </td>
                 <td>{{$demande->created_at}} </td>
                 <td > {{$demande->updated_at}} </td>
