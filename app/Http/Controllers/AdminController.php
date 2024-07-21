@@ -95,7 +95,7 @@ class AdminController extends Controller
 
     // Partie des traitement de renouvellement de carte
     public function listesRenouveau(){
-       
+
         $demandeAll=Renouvellement_carte::paginate(10);
 
         return view('Admin.Renouve.listes',compact('demandeAll'));
