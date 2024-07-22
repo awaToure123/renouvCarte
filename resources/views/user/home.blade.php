@@ -34,7 +34,6 @@
                                                     <th scope="col">Numéro</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Date</th>
-                                                    <th scope="col">Mise-à-jour</th>
                                                     <th scope="col">Details</th>
                                                 </tr>
                                             </thead>
@@ -42,7 +41,7 @@
                                                 @foreach($demandeAll as $demande)
                                                 <tr wire:key='{{$demande->id}}'>
                                                     <th scope="row"> {{$demande->id}} </th>
-                                                    <td colspan="2"> {{$demande->status}} </td>
+                                                    <td > {{$demande->status}} </td>
                                                     <td>{{$demande->created_at}} </td>
                                                     <td><a href="{{route('edit.demande.carte',['id'=>$demande->id])}}" class="btn btn-info"><i class="bi bi-pencil"></i></a></td>
                                                 </tr>
