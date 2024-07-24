@@ -35,7 +35,7 @@
                         <div class="statistics-details d-flex align-items-center justify-content-between">
                           <div>
                             <p class="statistics-title">Date : {{date('Y-m-d')}}</p>
-                            <h3 class="rate-percentage"> Bienvenue :{{Auth::user()->nom}}  </h3>
+                            <h3 class="rate-percentage"> Bienvenue :  </h3>
                           </div>
 
 

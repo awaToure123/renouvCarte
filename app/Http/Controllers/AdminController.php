@@ -22,6 +22,12 @@ class AdminController extends Controller
 
     public function home(){
 
+        if(!Auth::check()){
+
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
+
         $noumbreDemande=Demande_carte::where('status','En-cours')->count();
         $noumbreRenouve=Renouvellement_carte::where('status','En-cours')->count();
         $noumbrePertes=PertesCartesUser::where('status','En-cours')->count();
@@ -39,6 +45,13 @@ class AdminController extends Controller
     }
 
     public function update_account(){
+
+        if(!Auth::check()){
+
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
+
 
         return view("Admin.update");
     }
@@ -84,7 +97,11 @@ class AdminController extends Controller
 
 
     public function listeDemandeRendezVous($id){
+        if(!Auth::check()){
 
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
         $demande=Demande_carte::find($id);
         if(! $demande){
             toastr()->error('Erreur dans le formulaire ');
@@ -95,21 +112,33 @@ class AdminController extends Controller
 
     // Partie des traitement de renouvellement de carte
     public function listesRenouveau(){
+        if(!Auth::check()){
 
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
         $demandeAll=Renouvellement_carte::paginate(10);
 
         return view('Admin.Renouve.listes',compact('demandeAll'));
     }
 
     public function listesRenouveauRendezVous($id){
+        if(!Auth::check()){
 
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
         $demande=Renouvellement_carte::find($id);
 
         return view('Admin.Renouve.rendeVous',compact('demande'));
     }
 
     public function detailsRenouveCarte($id){
+        if(!Auth::check()){
 
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
         $demande=Renouvellement_carte::find($id);
         if(!$demande){
             toastr()->error('Demande inexistante ou supprimer !');
@@ -154,7 +183,11 @@ class AdminController extends Controller
     // Partie des traitement de demande de carte
 
     public function detailsDemande($id){
+        if(!Auth::check()){
 
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
         $demande=Demande_carte::find($id);
         if(!$demande){
             toastr()->error('Demande inexistante ou supprimer !');
@@ -165,7 +198,11 @@ class AdminController extends Controller
     }
 
     public function detailsPerteCarte($id){
+        if(!Auth::check()){
 
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
         $demande=PertesCartesUser::find($id);
         if(!$demande){
             toastr()->error('Demande inexistante ou supprimer !');
@@ -190,7 +227,11 @@ class AdminController extends Controller
 
 
     public function listesUsers(){
+        if(!Auth::check()){
 
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
         $usersAll=User::paginate(5);
         return view('Admin.users',[
             'usersAll'=>$usersAll
@@ -198,7 +239,11 @@ class AdminController extends Controller
     }
     //
     public function listesPertesCarteRendezVous($id){
+        if(!Auth::check()){
 
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
         $demande=PertesCartesUser::find($id);
         if(!$demande){
             toastr()->error('Veuillez rénitialiser la page');
@@ -209,7 +254,11 @@ class AdminController extends Controller
     }
 
     public function listesPertesCarte(){
+        if(!Auth::check()){
 
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
         $demandeAll=PertesCartesUser::paginate(10);
 
         return view('Admin.Pertes.listes',compact('demandeAll'));
@@ -358,7 +407,11 @@ class AdminController extends Controller
     }
 
     public function logoutUsers(){
+        if(!Auth::check()){
 
+            flash()->error("Veuillez vous connecté ");
+             redirect()->route("login_admin.admin");
+          }
 
         Auth::logout();
         return redirect()->route('login_admin.admin');
